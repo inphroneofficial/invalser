@@ -1,4 +1,5 @@
 
+You said:
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +10,7 @@
     <meta name="keywords" content="valet services india, security services india, book valet online, event valet, corporate security, bodyguards, bouncers, valet booking, premium services" />
     <meta name="author" content="INVALSER Team" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <link rel="canonical" href="https://findvalet.com" />
+    <link rel="canonical" href="https://invalser.com" />
     
     <!-- PWA Meta Tags -->
     <meta name="application-name" content="INVALSER" />
@@ -25,10 +26,10 @@
     <meta property="og:title" content="INVALSER - India's Premium Valet & Security Services" />
     <meta property="og:description" content="Book premium valet and security services instantly. Verified professionals across India for events and corporates." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://findvalet.com" />
+    <meta property="og:url" content="https://invalser.com" />
     <meta property="og:site_name" content="INVALSER" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:image" content="https://findvalet.com/og-image.png" />
+    <meta property="og:image" content="/invalser.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="INVALSER - Premium Services" />
@@ -39,16 +40,16 @@
     <meta name="twitter:description" content="Book premium valet and security services instantly. Verified professionals across India." />
     <meta name="twitter:site" content="@INVALSER" />
     <meta name="twitter:creator" content="@INVALSER" />
-    <meta name="twitter:image" content="https://findvalet.com/og-image.png" />
+    <meta name="twitter:image" content="/invalser.png" />
     <meta name="twitter:image:alt" content="INVALSER - Premium Services" />
 
     <!-- Favicon and Icons -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#3B82F6" />
+    <link rel="icon" type="image/svg+xml" href="/invalser.png" />
+    <link rel="alternate icon" href="/invalser.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/invalser.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/invalser.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/invalser.png" />
+    <link rel="mask-icon" href="/invalser.png" color="#3B82F6" />
     <meta name="msapplication-TileColor" content="#3B82F6" />
     
     <!-- Additional Meta -->
@@ -59,7 +60,7 @@
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
+
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
@@ -67,9 +68,9 @@
       "@type": "LocalBusiness",
       "name": "INVALSER",
       "description": "India's premium valet and security services platform - Find and book verified professionals for events and corporate needs",
-      "url": "https://findvalet.com",
-      "logo": "https://findvalet.com/icon-512.png",
-      "image": "https://findvalet.com/og-image.png",
+      "url": "https://invalser.com",
+      "logo": "/invalser.png",
+      "image": "/invalser.png",
       "priceRange": "₹₹",
       "address": {
         "@type": "PostalAddress",
@@ -96,22 +97,24 @@
       ]
     }
     </script>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "INVALSER",
-      "url": "https://findvalet.com",
+      "url": "https://invalser.com",
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://findvalet.com/providers?search={search_term_string}"
+          "urlTemplate": "https://invalser.com/providers?search={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       }
     }
     </script>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -119,10 +122,10 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is FindValet?",
+          "name": "What is invalser?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "FindValet is India's #1 premium valet services platform with 500+ verified professionals for weddings, events, and personal use."
+            "text": "invalser is India's #1 premium valet services platform with 500+ verified professionals for weddings, events, and personal use."
           }
         },
         {
@@ -135,10 +138,10 @@
         },
         {
           "@type": "Question",
-          "name": "Which cities does FindValet serve?",
+          "name": "Which cities does invalser serve?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "FindValet operates across all major Indian cities including Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune, and more."
+            "text": "invalser operates across all major Indian cities including Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune, and more."
           }
         }
       ]
@@ -148,31 +151,19 @@
 
   <body>
     <div id="root"></div>
+
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script type="module" src="/src/main.tsx"></script>
+    
+
     <script>
-      // Register service worker only in production domain and unregister in dev to avoid cache conflicts
-      (function() {
-        const isDevHost = location.hostname.includes('localhost') || location.hostname.includes('lovableproject.com');
-        if ('serviceWorker' in navigator) {
-          window.addEventListener('load', async () => {
-            if (isDevHost) {
-              // Unregister any existing SW in dev/staging to prevent stale caches and React duplication
-              const regs = await navigator.serviceWorker.getRegistrations();
-              for (const r of regs) try { await r.unregister(); } catch {}
-              if ('caches' in window) {
-                const names = await caches.keys();
-                await Promise.all(names.map(n => caches.delete(n)));
-              }
-              console.log('SW unregistered in dev/staging');
-            } else {
-              navigator.serviceWorker.register('/sw.js')
-                .then(reg => console.log('SW registered:', reg))
-                .catch(err => console.log('SW registration failed:', err));
-            }
-          });
-        }
-      })();
+      // Register service worker normally
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('SW registered:', reg))
+            .catch(err => console.log('SW registration failed:', err));
+        });
+      }
     </script>
   </body>
-</html>
+</html> 
