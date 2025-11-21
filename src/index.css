@@ -4,38 +4,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ----------------------------- */
+/* ROOT VARIABLES & DARK MODE */
+/* ----------------------------- */
 @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222 84% 4.9%;
-
     --primary: 199 89% 48%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 210 40% 98%;
     --secondary-foreground: 222 47% 11%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215 16.3% 46.9%;
-
     --accent: 199 89% 48%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 214 31.8% 91.4%;
     --input: 214 31.8% 91.4%;
     --ring: 199 89% 48%;
-
     --radius: 0.75rem;
-
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 215 25% 27%;
     --sidebar-primary: 199 89% 48%;
@@ -44,8 +37,6 @@
     --sidebar-accent-foreground: 215 25% 27%;
     --sidebar-border: 214 31.8% 91.4%;
     --sidebar-ring: 199 89% 48%;
-
-    /* Ice blue color palette */
     --ice-blue-50: 198 100% 98%;
     --ice-blue-100: 198 100% 94%;
     --ice-blue-200: 198 93% 86%;
@@ -61,32 +52,23 @@
   .dark {
     --background: 222 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
-
     --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 199 89% 48%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 215 28% 17%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 215 28% 17%;
     --muted-foreground: 214 32% 75%;
-
     --accent: 199 89% 48%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-
     --border: 215 28% 17%;
     --input: 215 28% 17%;
     --ring: 199 89% 48%;
-
     --sidebar-background: 222 84% 4.9%;
     --sidebar-foreground: 214 32% 95%;
     --sidebar-primary: 199 89% 48%;
@@ -98,6 +80,9 @@
   }
 }
 
+/* ----------------------------- */
+/* BASE STYLES & SCROLL FIX */
+/* ----------------------------- */
 @layer base {
   * {
     @apply border-border;
@@ -106,14 +91,14 @@
   html {
     @apply scroll-smooth;
     scroll-behavior: smooth;
-    max-width: 100vw;          /* Prevent horizontal scroll */
+    max-width: 100vw;
     overflow-x: hidden;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
     min-height: 100vh;
-    overflow-x: hidden;        /* Prevent horizontal scroll */
+    overflow-x: hidden;
     background: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 50%, hsl(200 100% 96%) 100%);
     color: hsl(222 84% 4.9%);
   }
@@ -145,7 +130,7 @@
     @apply transition-all duration-300;
   }
 
-  /* Enhanced scrollbar styling */
+  /* Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -161,20 +146,20 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-ice-blue-500 dark:bg-ice-blue-500;
   }
+
+  /* Fullscreen container */
+  .min-h-screen { min-height: 100vh; }
+
+  /* Smooth gradients for backgrounds */
+  .bg-gradient-to-br { background-image: linear-gradient(to bottom right, var(--tw-gradient-stops)); }
+  .from-ice-blue-50 { --tw-gradient-from: hsl(198 100% 98%); --tw-gradient-to: hsla(198 100% 98% / 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+  .to-white { --tw-gradient-to: hsl(0 0% 100%); }
+  .dark .from-gray-900 { --tw-gradient-from: hsl(221 39% 11%); --tw-gradient-to: hsla(221 39% 11% / 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+  .dark .to-gray-800 { --tw-gradient-to: hsl(217 33% 17%); }
 }
 
 /* ----------------------------- */
-/* FIX FOR MAIN CONTAINERS & CARDS */
-/* ----------------------------- */
-.container, .app-wrapper, .card, .profile-card, .glass-card {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  box-sizing: border-box;
-}
-
-/* ----------------------------- */
-/* MOBILE SIDE MENU FIX */
+/* MOBILE MENU FIX */
 /* ----------------------------- */
 .mobile-menu {
   position: fixed;
@@ -188,12 +173,10 @@
   z-index: 9999;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
-  overflow-y: auto; /* allow scrolling if menu too tall */
+  overflow-y: auto;
 }
 
-.mobile-menu.open {
-  transform: translateX(0);
-}
+.mobile-menu.open { transform: translateX(0); }
 
 .mobile-menu .mobile-nav-item {
   display: block;
@@ -203,53 +186,72 @@
 }
 
 /* ----------------------------- */
-/* Animations and utilities (keep as in your original code) */
+/* PREMIUM BUTTONS & GRADIENTS */
 /* ----------------------------- */
-/* ... include all keyframes, animate- classes, delays, glass-card, buttons, hover states, etc. as you provided ... */
+.premium-btn {
+  background: linear-gradient(90deg, #FFD700 0%, #FFB347 100%);
+  color: #111;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 0.75rem;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-/* ----------------------------- */
-/* Mobile responsiveness tweaks */
-/* ----------------------------- */
-@media (max-width: 640px) {
-  .mobile-nav-item {
-    background-color: hsla(0 0% 100% / 0.95) !important;
-    color: hsl(215 25% 27%) !important;
-    border: 1px solid hsla(199 89% 48% / 0.3) !important;
-  }
+.premium-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
 
-  .dark .mobile-nav-item {
-    background-color: hsla(222 47% 11% / 0.95) !important;
-    color: hsl(214 32% 95%) !important;
-    border: 1px solid hsla(199 89% 48% / 0.4) !important;
-  }
-
-  .mobile-nav-item:hover {
-    background-color: hsla(200 100% 96% / 0.98) !important;
-    transform: scale(1.02);
-    border-color: hsla(199 89% 48% / 0.5) !important;
-  }
-
-  .dark .mobile-nav-item:hover {
-    background-color: hsla(215 28% 17% / 0.98) !important;
-    border-color: hsla(199 89% 48% / 0.6) !important;
-  }
-
-  button, .btn, a[class*="btn"] {
-    font-size: 0.875rem !important;
-    padding: 0.5rem 0.75rem !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    max-width: 100% !important;
-  }
-
-  .mobile-button-text {
-    font-size: 0.8rem !important;
-    line-height: 1.2 !important;
-  }
+.gradient-text {
+  background: linear-gradient(90deg, #FFD700, #FFB347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
 }
 
 /* ----------------------------- */
-/* Preserve all existing ice-blue overrides, yellow->ice-blue replacements, shimmer, glow, light/dark enhancements */
+/* PREMIUM SHADOWS & HOVER */
 /* ----------------------------- */
-/* ... include all of your previously defined color overrides, buttons, shadows, etc. ... */
+.premium-shadow {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.12);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.premium-shadow:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 12px 48px rgba(0,0,0,0.18);
+  transform: translateY(-2px);
+}
+
+/* ----------------------------- */
+/* SPIN ANIMATION */
+/* ----------------------------- */
+.animate-spin {
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ----------------------------- */
+/* FOCUS & ACCESSIBILITY */
+/* ----------------------------- */
+.focus-visible\:outline-none:focus-visible { outline: 2px solid transparent; outline-offset: 2px; }
+.focus-visible\:ring-2:focus-visible {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow,0 0 #0000);
+  transition: box-shadow 0.3s ease-in-out, outline 0.3s ease-in-out;
+  border-radius: 0.5rem;
+}
+
+.sr-only {
+  position: absolute !important; width: 1px !important; height: 1px !important;
+  padding:0 !important; margin:-1px !important; overflow:hidden !important;
+  clip:rect(0,0,0,0) !important; white-space:nowrap !important; border-width:0 !important;
+}
+
+.focus\:not-sr-only:focus { position: static; width:auto; height:auto; padding:0; margin:0; overflow:visible; clip:auto; white-space:normal; }
