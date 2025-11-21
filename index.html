@@ -2,28 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
-    <title>
-      INVALSER - India's Premium Valet & Security Services | Instant Booking
-    </title>
-
-    <meta
-      name="description"
-      content="INVALSER: Book premium valet and security services across India. Verified professionals for weddings, events, and corporates. Instant booking, transparent pricing."
-    />
-    <meta
-      name="keywords"
-      content="valet services india, security services india, book valet online, event valet, corporate security, bodyguards, bouncers, valet booking, premium services"
-    />
+    <!-- Correct single viewport meta tag to prevent zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    
+    <title>INVALSER - India's Premium Valet & Security Services | Instant Booking</title>
+    
+    <meta name="description" content="INVALSER: Book premium valet and security services across India. Verified professionals for weddings, events, and corporates. Instant booking, transparent pricing." />
+    <meta name="keywords" content="valet services india, security services india, book valet online, event valet, corporate security, bodyguards, bouncers, valet booking, premium services" />
     <meta name="author" content="INVALSER Team" />
-    <meta
-      name="robots"
-      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-    />
-    <link rel="canonical" href="https://invalser.com" />
+    <link rel="icon" href="/invalser.png" />
+    <link rel="apple-touch-icon" href="/invalser.png" sizes="180x180" />
 
     <!-- PWA -->
     <meta name="application-name" content="INVALSER" />
@@ -36,19 +24,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-title" content="INVALSER" />
 
-    <!-- Icons -->
-    <link rel="icon" href="/invalser.png" />
-    <link rel="apple-touch-icon" href="/invalser.png" sizes="180x180" />
-
     <!-- Open Graph -->
-    <meta
-      property="og:title"
-      content="INVALSER - India's Premium Valet & Security Services"
-    />
-    <meta
-      property="og:description"
-      content="Book premium valet and security services instantly. Verified professionals across India for events and corporates."
-    />
+    <meta property="og:title" content="INVALSER - India's Premium Valet & Security Services" />
+    <meta property="og:description" content="Book premium valet and security services instantly. Verified professionals across India for events and corporates." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://invalser.com" />
     <meta property="og:site_name" content="INVALSER" />
@@ -59,68 +37,104 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="INVALSER - India's Premium Valet & Security Services"
-    />
-    <meta
-      name="twitter:description"
-      content="Book premium valet and security services instantly. Verified professionals across India."
-    />
+    <meta name="twitter:title" content="INVALSER - India's Premium Valet & Security Services" />
+    <meta name="twitter:description" content="Book premium valet and security services instantly. Verified professionals across India." />
     <meta name="twitter:image" content="/invalser.png" />
 
-    <!-- Structured Data - Business -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "INVALSER",
-        "description": "India's premium valet and security services platform.",
-        "url": "https://invalser.com",
-        "logo": "/invalser.png",
-        "image": "/invalser.png",
-        "priceRange": "₹₹",
-        "address": { "@type": "PostalAddress", "addressCountry": "IN" },
-        "areaServed": { "@type": "Country", "name": "India" },
-        "serviceType": [
-          "Valet Services",
-          "Event Valet",
-          "Security Services",
-          "Bodyguards",
-          "Bouncers"
-        ]
-      }
-    </script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Structured Data - Website -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "INVALSER",
-        "url": "https://invalser.com",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://invalser.com/providers?search={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      }
-    </script>
+    <!-- Styles (you can also link external index.css) -->
+    <link rel="stylesheet" href="/index.css">
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Example booking form -->
+      <form class="booking-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="service">Service</label>
+          <select id="service" name="service" required>
+            <option value="">Select Service</option>
+            <option value="valet">Valet</option>
+            <option value="security">Security</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Booking Date</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <button type="submit">Next</button>
+      </form>
+
+      <!-- Chatbot card -->
+      <div class="chatbot-card animate-slide-in-right">
+        <div class="chatbot-header">Chat with us</div>
+        <div class="chatbot-messages">
+          <!-- Messages will appear here -->
+        </div>
+        <div class="chatbot-input">
+          <input type="text" placeholder="Type a message..." />
+          <button>Send</button>
+        </div>
+      </div>
+    </div>
 
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- Service Worker Register -->
+    <!-- Service Worker -->
     <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("/sw.js")
-          .then(() => console.log("✔ Service Worker Registered"))
-          .catch((err) => console.error("SW Failed", err));
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+        .then(() => console.log('✔ Service Worker Registered'))
+        .catch(err => console.error('SW Failed', err));
       }
     </script>
+
+    <style>
+      /* Mobile fixes for chatbot and booking form */
+      input, select, textarea, button {
+        font-size: 16px;
+      }
+
+      .booking-form {
+        width: 95%;
+        max-width: 500px;
+        margin: 1rem auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .booking-form .form-group {
+        flex: 1 1 100%;
+      }
+      .booking-form input, .booking-form select, .booking-form textarea, .booking-form button {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.6rem 0.8rem;
+        box-sizing: border-box;
+      }
+
+      /* Chatbot responsive */
+      .chatbot-card {
+        width: 90vw;
+        max-width: 350px;
+        bottom: env(safe-area-inset-bottom, 1rem);
+        right: 1rem;
+      }
+      @media (min-width: 768px) {
+        .chatbot-card {
+          width: 320px;
+        }
+      }
+    </style>
   </body>
 </html>
