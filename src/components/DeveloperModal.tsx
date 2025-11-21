@@ -22,7 +22,7 @@ export function DeveloperModal({ open, onOpenChange }: DeveloperModalProps) {
   const developerLinks = [
     { icon: <Github className="h-3 w-3 sm:h-4 sm:w-4" />, label: "GitHub", url: "https://github.com" },
     { icon: <Instagram className="h-3 w-3 sm:h-4 sm:w-4 text-pink-500" />, label: "Instagram", url: "https://instagram.com/g_tahngella_k" },
-    { icon: <Linkedin className="h-3 w-3 sm:h-4 sm:w-4 text-blue-600" />, label: "LinkedIn", url: "https://www.linkedin.com/in/gthangella/" },
+    { icon: <Linkedin className="h-3 w-3 sm:h-4 sm:w-4 text-blue-600" />, label: "LinkedIn", url: "https://www.linkedin.com" },
     { icon: <Twitter className="h-3 w-3 sm:h-4 sm:w-4 text-blue-400" />, label: "Twitter", url: "https://twitter.com/g_thangella" },
     { icon: <Mail className="h-3 w-3 sm:h-4 sm:w-4 text-red-500" />, label: "Email", url: "mailto:imgtk17@gmail.com" },
     { icon: <Globe className="h-3 w-3 sm:h-4 sm:w-4 text-ice-blue-500" />, label: "Portfolio", url: "https://thangella-creaftech-solutions.vercel.app/" }
@@ -42,10 +42,10 @@ export function DeveloperModal({ open, onOpenChange }: DeveloperModalProps) {
           {/* Avatar & Info */}
           <div className="flex flex-col items-center text-center">
             <Avatar className="h-14 w-14 sm:h-20 sm:w-20 border-2 border-ice-blue-500 mb-2">
-              <AvatarImage src="/GTK.JPG" alt="G. Thangella" />
+              <AvatarImage src="/GTK.jpg" alt="G.Thangella" />
               <AvatarFallback className="bg-ice-blue-100 text-ice-blue-700 dark:bg-ice-blue-900 dark:text-ice-blue-300">GT</AvatarFallback>
             </Avatar>
-            <h3 className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white">G. Thangella</h3>
+            <h3 className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white">G.Thangella</h3>
             <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 leading-tight">
               💼 Entrepreneur • 🧠 Tech Explorer{"\n"}
               🎨 Creative Thinker • 🔭 Visionary
@@ -70,9 +70,9 @@ export function DeveloperModal({ open, onOpenChange }: DeveloperModalProps) {
 
             <div className="grid grid-cols-1 gap-2">
               <div className="bg-ice-blue-50 dark:bg-ice-blue-900/30 p-2 rounded-md border border-ice-blue-200 dark:border-ice-blue-700">
-                <h4 className="font-medium text-xs mb-1 text-ice-blue-700 dark:text-ice-blue-300">Tech Stack</h4>
+                <h4 className="font-medium text-xs mb-1 text-ice-blue-700 dark:text-ice-blue-300">Tech</h4>
                 <p className="text-gray-600 dark:text-gray-400 text-xs">
-                  React, TypeScript, TailwindCSS, shadcn/ui
+                
                 </p>
               </div>
 
