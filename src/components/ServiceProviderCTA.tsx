@@ -42,48 +42,57 @@ const ServiceProviderCTA = () => {
         </Motion>
 
         {/* Enhanced Stats Section */}
-        <Motion variant="slideUp" delay={200}>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
-            <Card className="text-center bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-ice-blue-200 dark:border-ice-blue-700 hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-bounce-subtle group">
-              <CardContent className="p-6">
-                <div className="relative">
-                  <Users className="h-10 w-10 text-ice-blue-600 dark:text-ice-blue-400 mx-auto mb-3 animate-bounce-gentle group-hover:animate-spin" />
-                  <div className="absolute inset-0 bg-ice-blue-400/20 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1 animate-pulse-number">100+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Active Customers</div>
-                <Badge className="mt-2 bg-green-100 text-green-800 animate-glow-gentle">Growing 25% monthly</Badge>
-              </CardContent>
-            </Card>
+<Motion variant="slideUp" delay={200}>
+  <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+    <Card className="text-center bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-ice-blue-200 dark:border-ice-blue-700 hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-bounce-subtle group">
+      <CardContent className="p-6">
+        <div className="relative">
+          <Users className="h-10 w-10 text-ice-blue-600 dark:text-ice-blue-400 mx-auto mb-3 animate-bounce-gentle group-hover:animate-spin" />
+          <div className="absolute inset-0 bg-ice-blue-400/20 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+        <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1 animate-pulse-number">100+</div>
+        <div className="text-sm text-gray-600 dark:text-gray-400">Active Customers</div>
+        <Badge className="mt-2 bg-green-100 text-green-800 dark:bg-black dark:text-white group-hover:bg-green-100 group-hover:text-green-800 animate-glow-gentle">
+          Growing 25% monthly
+        </Badge>
+      </CardContent>
+    </Card>
 
-            <Card className="text-center bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-ice-blue-200 dark:border-ice-blue-700 hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-bounce-subtle group" style={{ animationDelay: '100ms' }}>
-              <CardContent className="p-6">
-                <TrendingUp className="h-10 w-10 text-green-600 mx-auto mb-3 animate-bounce-gentle group-hover:animate-pulse" />
-                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1 animate-pulse-number">98%</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Success Rate</div>
-                <Badge className="mt-2 bg-blue-100 text-blue-800 animate-glow-gentle">Industry Leading</Badge>
-              </CardContent>
-            </Card>
+    <Card className="text-center bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-ice-blue-200 dark:border-ice-blue-700 hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-bounce-subtle group" style={{ animationDelay: '100ms' }}>
+      <CardContent className="p-6">
+        <TrendingUp className="h-10 w-10 text-green-600 mx-auto mb-3 animate-bounce-gentle group-hover:animate-pulse" />
+        <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1 animate-pulse-number">98%</div>
+        <div className="text-sm text-gray-600 dark:text-gray-400">Success Rate</div>
+        <Badge className="mt-2 bg-blue-100 text-blue-800 dark:bg-black dark:text-white group-hover:bg-blue-100 group-hover:text-blue-800 animate-glow-gentle">
+          Industry Leading
+        </Badge>
+      </CardContent>
+    </Card>
 
-            <Card className="text-center bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-ice-blue-200 dark:border-ice-blue-700 hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-bounce-subtle group" style={{ animationDelay: '200ms' }}>
-              <CardContent className="p-6">
-                <Star className="h-10 w-10 text-ice-blue-500 dark:text-ice-blue-400 mx-auto mb-3 animate-sparkle group-hover:animate-spin" />
-                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1 animate-pulse-number">4.9</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Average Rating</div>
-                <Badge className="mt-2 bg-ice-blue-100 text-ice-blue-800 dark:bg-ice-blue-900/30 dark:text-ice-blue-300 animate-glow-gentle">Excellent Service</Badge>
-              </CardContent>
-            </Card>
+    <Card className="text-center bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-ice-blue-200 dark:border-ice-blue-700 hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-bounce-subtle group" style={{ animationDelay: '200ms' }}>
+      <CardContent className="p-6">
+        <Star className="h-10 w-10 text-ice-blue-500 dark:text-ice-blue-400 mx-auto mb-3 animate-sparkle group-hover:animate-spin" />
+        <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1 animate-pulse-number">4.9</div>
+        <div className="text-sm text-gray-600 dark:text-gray-400">Average Rating</div>
+        <Badge className="mt-2 bg-ice-blue-100 text-ice-blue-800 dark:bg-black dark:text-white group-hover:bg-ice-blue-100 group-hover:text-ice-blue-800 animate-glow-gentle">
+          Excellent Service
+        </Badge>
+      </CardContent>
+    </Card>
 
-            <Card className="text-center bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-ice-blue-200 dark:border-ice-blue-700 hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-bounce-subtle group" style={{ animationDelay: '300ms' }}>
-              <CardContent className="p-6">
-                <Target className="h-10 w-10 text-ice-blue-600 mx-auto mb-3 animate-pulse group-hover:animate-bounce" />
-                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1 animate-pulse-number">1+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Cities Covered</div>
-                <Badge className="mt-2 bg-purple-100 text-purple-800 animate-glow-gentle">Pan-India Presence</Badge>
-              </CardContent>
-            </Card>
-          </div>
-        </Motion>
+    <Card className="text-center bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-ice-blue-200 dark:border-ice-blue-700 hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-bounce-subtle group" style={{ animationDelay: '300ms' }}>
+      <CardContent className="p-6">
+        <Target className="h-10 w-10 text-ice-blue-600 mx-auto mb-3 animate-pulse group-hover:animate-bounce" />
+        <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1 animate-pulse-number">1+</div>
+        <div className="text-sm text-gray-600 dark:text-gray-400">Cities Covered</div>
+        <Badge className="mt-2 bg-purple-100 text-purple-800 dark:bg-black dark:text-white group-hover:bg-purple-100 group-hover:text-purple-800 animate-glow-gentle">
+          Pan-India Presence
+        </Badge>
+      </CardContent>
+    </Card>
+  </div>
+</Motion>
+
 
         {/* Enhanced Pricing Plans */}
         <Motion variant="slideUp" delay={400}>

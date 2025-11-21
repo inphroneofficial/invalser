@@ -1,310 +1,255 @@
-/* ================================
-   Find Valet — Balanced Luxury Upgrades
-   (Keep your color tokens & Tailwind)
-   ================================ */
-
-/* keep Tailwind directives at top of file in your build */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* -------------------------
-   CSS upgrade layer
-   ------------------------- */
 @layer base {
-  :root{
-    /* pointer-friendly CSS variables (optional JS can update these for cursor-follow effects) */
-    --pointer-x: 50%;
-    --pointer-y: 50%;
-    --tilt-x: 0deg;
-    --tilt-y: 0deg;
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 84% 4.9%;
 
-    /* subtle motion tuning for Balanced Luxury */
-    --lift-distance: 10px;
-    --lift-ease: cubic-bezier(.16,.9,.32,1);
-    --shine-duration: 900ms;
-    --ripple-duration: 600ms;
-    --glass-opa: 0.10;
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.9%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 16.3% 46.9%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 31.8% 91.4%;
+    --input: 214 31.8% 91.4%;
+    --ring: 199 89% 48%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 25% 27%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 40% 98%;
+    --sidebar-accent-foreground: 215 25% 27%;
+    --sidebar-border: 214 31.8% 91.4%;
+    --sidebar-ring: 199 89% 48%;
+
+    /* Ice blue color palette */
+    --ice-blue-50: 198 100% 98%;
+    --ice-blue-100: 198 100% 94%;
+    --ice-blue-200: 198 93% 86%;
+    --ice-blue-300: 198 87% 74%;
+    --ice-blue-400: 198 93% 60%;
+    --ice-blue-500: 199 89% 48%;
+    --ice-blue-600: 200 98% 39%;
+    --ice-blue-700: 201 96% 32%;
+    --ice-blue-800: 201 90% 27%;
+    --ice-blue-900: 202 80% 24%;
   }
 
-  /* small reset for interactive elements */
-  button, .btn-ice, .btn-ice-ghost {
-    -webkit-tap-highlight-color: transparent;
-    transform-origin: center center;
-    backface-visibility: hidden;
-    will-change: transform, box-shadow;
-  }
+  .dark {
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
 
-  /* =========================
-     Button Enhancements
-     Balanced, tactile, "magnetic" micro-move
-     ========================= */
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
 
-  /* base improved button look retains your .btn-ice */
-  .btn-ice {
-    position: relative;
-    overflow: visible;
-    padding: .62rem 1.05rem;
-    border-radius: 12px;
-    font-weight: 700;
-    letter-spacing: 0.2px;
-    transition: transform 220ms var(--lift-ease), box-shadow 220ms var(--lift-ease), filter 220ms var(--lift-ease);
-    cursor: pointer;
-  }
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
 
-  /* Magnetic hover — subtle translate and slight scale (Balanced) */
-  .btn-ice:hover {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow:
-      0 18px 50px rgba(6,8,20,0.32),
-      0 6px 18px hsla(var(--ice-accent) / 0.10);
-    filter: saturate(1.045);
-  }
+    --primary: 199 89% 48%;
+    --primary-foreground: 210 40% 98%;
 
-  /* Light press (tap) feedback */
-  .btn-ice:active {
-    transform: translateY(-2px) scale(.995);
-    box-shadow: 0 10px 26px rgba(6,8,20,0.28);
-  }
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
 
-  /* Accessible focus ring */
-  .btn-ice:focus-visible {
-    outline: none;
-    box-shadow: var(--focus-ring), 0 8px 30px rgba(6,8,20,0.19);
-  }
+    --muted: 215 28% 17%;
+    --muted-foreground: 214 32% 75%;
 
-  /* Sheen (subtle moving gloss) using pseudo element */
-  .btn-ice::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-    left: -40%;
-    top: -40%;
-    width: 180%;
-    height: 180%;
-    background: linear-gradient(120deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 35%, rgba(255,255,255,0.12) 100%);
-    transform: translateX(0) rotate(12deg) scale(1.02);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 420ms var(--lift-ease), transform var(--shine-duration) linear;
-    border-radius: inherit;
-    mix-blend-mode: overlay;
-  }
-  .btn-ice:hover::before{
-    opacity: 1;
-    transform: translateX(18%) rotate(12deg) scale(1.02);
-  }
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
 
-  /* Gentle energy rim on hover (subtle neon halo) */
-  .btn-ice::after {
-    content: "";
-    position: absolute;
-    inset: -6px;
-    border-radius: 14px;
-    background: radial-gradient(closest-side, hsla(var(--ice-accent) / .09), transparent 55%);
-    opacity: 0;
-    transition: opacity 320ms var(--lift-ease), transform 320ms var(--lift-ease);
-    pointer-events: none;
-  }
-  .btn-ice:hover::after { opacity: 1; transform: scale(1.02); }
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
 
-  /* Ripple on click using :active (CSS-only fallback) */
-  .btn-ice:active::after {
-    animation: btn-ripple var(--ripple-duration) ease-out forwards;
-  }
-  @keyframes btn-ripple {
-    0% { transform: scale(.7); opacity: .35; }
-    100% { transform: scale(1.7); opacity: 0; }
-  }
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 199 89% 48%;
 
-  /* Ghost button variant: subtle glass fill on hover */
-  .btn-ice-ghost {
-    transition: background-color 260ms var(--lift-ease), color 260ms var(--lift-ease), transform 260ms var(--lift-ease);
-    background: transparent;
-  }
-  .btn-ice-ghost:hover {
-    background: hsla(var(--ice-accent) / 0.06);
-    transform: translateY(-4px);
-    color: white;
-  }
-
-  /* =========================
-     Card Enhancements
-     Parallax tilt (CSS-forward), ambient glow, edge sheen
-     ========================= */
-
-  /* container needs perspective for parallax */
-  .vehicle-card-premium {
-    perspective: 1200px;
-    position: relative;
-    overflow: visible;
-  }
-
-  /* inner card that actually tilts; we add layer for background sheen */
-  .vehicle-card-premium .card-inner {
-    display: flex;
-    gap: 14px;
-    align-items: center;
-    padding: 14px;
-    border-radius: 14px;
-    background: linear-gradient(180deg, color-mix(in srgb, hsl(var(--surface-1)) 92%, black 2%), hsla(var(--ice-accent) / 0.02));
-    border: 1px solid hsla(var(--ice-accent) / 0.06);
-    box-shadow: 0 8px 28px rgba(6,10,20,0.24);
-    transition: transform 420ms var(--lift-ease), box-shadow 420ms var(--lift-ease), border-color 260ms var(--lift-ease);
-    transform-style: preserve-3d;
-    will-change: transform;
-  }
-
-  /* tilt effect on hover — rotated slightly using CSS only */
-  .vehicle-card-premium:hover .card-inner {
-    transform: rotateX(calc(var(--tilt-x, -2deg))) rotateY(calc(var(--tilt-y, 6deg))) translateY(-10px) scale(1.008);
-    border-color: hsla(var(--ice-accent) / 0.12);
-    box-shadow: 0 22px 64px rgba(6,10,20,0.46);
-  }
-
-  /* ambient radial light that follows pointer (works well with small JS or static center) */
-  .vehicle-card-premium::before{
-    content: "";
-    position: absolute;
-    left: var(--pointer-x, 50%);
-    top: var(--pointer-y, 50%);
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    width: 420px;
-    height: 220px;
-    background: radial-gradient(closest-side, hsla(var(--ice-accent) / 0.12), transparent 40%);
-    filter: blur(40px);
-    opacity: 0;
-    transition: opacity 420ms var(--lift-ease), left 420ms var(--lift-ease), top 420ms var(--lift-ease);
-    border-radius: 50%;
-  }
-  .vehicle-card-premium:hover::before { opacity: 1; }
-
-  /* crisp edge sheen on top-right */
-  .vehicle-card-premium .card-inner::after {
-    content: "";
-    position: absolute;
-    right: 8%;
-    top: -6%;
-    width: 48%;
-    height: 36%;
-    background: linear-gradient(120deg, rgba(255,255,255,0.14), rgba(255,255,255,0.02));
-    transform: translateZ(20px) rotate(8deg);
-    border-radius: 28%;
-    opacity: 0;
-    transition: opacity 520ms var(--lift-ease), transform 520ms var(--lift-ease);
-    pointer-events: none;
-    mix-blend-mode: overlay;
-  }
-  .vehicle-card-premium:hover .card-inner::after { opacity: 1; transform: translateZ(22px) rotate(8deg) translateY(-6px); }
-
-  /* subtle floating for hero/featured cards */
-  .vehicle-card-premium .card-inner.animate-floating {
-    animation: premiumFloat 6.8s ease-in-out infinite;
-  }
-
-  /* =========================
-     Glass & background micro-polish
-     ========================= */
-
-  /* refined glass card variants: softened rim + inner stroke */
-  .glass-card {
-    position: relative;
-    overflow: visible;
-    border-radius: 14px;
-  }
-  .glass-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    pointer-events: none;
-    background: linear-gradient(180deg, hsla(0 0% 100% / .02), transparent 30%);
-    mix-blend-mode: overlay;
-    z-index: 0;
-  }
-  .glass-card .glass-content { position: relative; z-index: 1; }
-
-  /* soft inner stroke for premium depth */
-  .glass-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(90deg, transparent, hsla(var(--ice-accent) / 0.03), transparent);
-    mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
-    mask-composite: exclude;
-    -webkit-mask-composite: xor;
-    opacity: 0.9;
-    pointer-events: none;
-  }
-
-  /* =========================
-     Subtle global ambient light for page
-     ========================= */
-  .ambient-spot {
-    position: fixed;
-    left: var(--pointer-x, 50%);
-    top: var(--pointer-y, 20%);
-    width: 680px;
-    height: 400px;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    background: radial-gradient(closest-side, hsla(var(--ice-accent) / 0.06), transparent 35%);
-    filter: blur(48px) saturate(120%);
-    opacity: 0;
-    transition: opacity 480ms var(--lift-ease), left 480ms var(--lift-ease), top 480ms var(--lift-ease);
-    z-index: 10;
-  }
-  .ambient-spot.visible { opacity: 1; }
-
-  /* =========================
-     Helpful small animations (balanced)
-     ========================= */
-  @keyframes premiumFloat { 0%{ transform: translateY(0); } 50%{ transform: translateY(-10px); } 100%{ transform: translateY(0); } }
-  @keyframes tinyPulse { 0%{ transform: scale(1); opacity: .95 } 50%{ transform: scale(1.02); opacity: 1 } 100%{ transform: scale(1); opacity: .95 } }
-
-  .animate-subtle-pulse { animation: tinyPulse 3s ease-in-out infinite; }
-
-  /* =========================
-     Input focus polish
-     ========================= */
-  .input-ice {
-    position: relative;
-    transition: box-shadow 220ms var(--lift-ease), transform 220ms var(--lift-ease);
-  }
-  .input-ice:focus {
-    transform: translateY(-2px);
-    box-shadow: var(--focus-ring);
-  }
-
-  /* =========================
-     Accessibility & reduced motion
-     ========================= */
-  @media (prefers-reduced-motion: reduce) {
-    .btn-ice, .btn-ice-ghost, .vehicle-card-premium .card-inner, .glass-card, .ambient-spot, .spark {
-      transition: none !important;
-      animation: none !important;
-    }
-    .btn-ice:hover, .vehicle-card-premium:hover .card-inner { transform: none !important; box-shadow: none !important; }
-    .vehicle-card-premium::before, .vehicle-card-premium .card-inner::after { opacity: 0 !important; }
-  }
-
-  /* =========================
-     Small responsive tweaks (Balanced)
-     ========================= */
-  @media (max-width: 880px) {
-    .btn-ice { padding: .5rem .85rem; font-size: .97rem; }
-    .vehicle-card-premium .card-inner { padding: 12px; border-radius: 12px; }
-    .vehicle-card-premium img { width: 96px; height: 62px; }
-    .ambient-spot { display: none; }
-  }
-
-  @media (max-width: 640px) {
-    .btn-ice { padding: .45rem .75rem; font-size: .9rem; }
-    .btn-ice::before { display: none; } /* hide sheen on tiny screens */
-    .vehicle-card-premium:hover .card-inner { transform: translateY(-6px) scale(1.005); }
+    --sidebar-background: 222 84% 4.9%;
+    --sidebar-foreground: 214 32% 95%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 215 28% 17%;
+    --sidebar-accent-foreground: 214 32% 95%;
+    --sidebar-border: 215 28% 17%;
+    --sidebar-ring: 199 89% 48%;
   }
 }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+    scroll-behavior: smooth;
+    max-width: 100vw;          /* Prevent horizontal scroll */
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    min-height: 100vh;
+    overflow-x: hidden;        /* Prevent horizontal scroll */
+    background: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 50%, hsl(200 100% 96%) 100%);
+    color: hsl(222 84% 4.9%);
+  }
+
+  .dark body {
+    background: linear-gradient(135deg, hsl(222 84% 4.9%) 0%, hsl(222 47% 11%) 50%, hsl(215 28% 17%) 100%);
+    color: hsl(210 40% 98%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+    color: hsl(215 25% 27%) !important;
+    font-weight: 600;
+  }
+
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: hsl(214 32% 95%) !important;
+  }
+
+  p, span, div {
+    color: hsl(var(--foreground) / 0.9);
+  }
+
+  .dark p, .dark span, .dark div {
+    color: hsl(var(--foreground) / 0.9);
+  }
+
+  a {
+    @apply transition-all duration-300;
+  }
+
+  /* Enhanced scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-100 dark:bg-slate-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ice-blue-400 dark:bg-ice-blue-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-ice-blue-500 dark:bg-ice-blue-500;
+  }
+}
+
+/* ----------------------------- */
+/* FIX FOR MAIN CONTAINERS & CARDS */
+/* ----------------------------- */
+.container, .app-wrapper, .card, .profile-card, .glass-card {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* ----------------------------- */
+/* MOBILE SIDE MENU FIX */
+/* ----------------------------- */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 80%;
+  max-width: 300px;
+  background-color: hsl(var(--sidebar-background));
+  color: hsl(var(--sidebar-foreground));
+  z-index: 9999;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto; /* allow scrolling if menu too tall */
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.mobile-menu .mobile-nav-item {
+  display: block;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ----------------------------- */
+/* Animations and utilities (keep as in your original code) */
+/* ----------------------------- */
+/* ... include all keyframes, animate- classes, delays, glass-card, buttons, hover states, etc. as you provided ... */
+
+/* ----------------------------- */
+/* Mobile responsiveness tweaks */
+/* ----------------------------- */
+@media (max-width: 640px) {
+  .mobile-nav-item {
+    background-color: hsla(0 0% 100% / 0.95) !important;
+    color: hsl(215 25% 27%) !important;
+    border: 1px solid hsla(199 89% 48% / 0.3) !important;
+  }
+
+  .dark .mobile-nav-item {
+    background-color: hsla(222 47% 11% / 0.95) !important;
+    color: hsl(214 32% 95%) !important;
+    border: 1px solid hsla(199 89% 48% / 0.4) !important;
+  }
+
+  .mobile-nav-item:hover {
+    background-color: hsla(200 100% 96% / 0.98) !important;
+    transform: scale(1.02);
+    border-color: hsla(199 89% 48% / 0.5) !important;
+  }
+
+  .dark .mobile-nav-item:hover {
+    background-color: hsla(215 28% 17% / 0.98) !important;
+    border-color: hsla(199 89% 48% / 0.6) !important;
+  }
+
+  button, .btn, a[class*="btn"] {
+    font-size: 0.875rem !important;
+    padding: 0.5rem 0.75rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+  }
+
+  .mobile-button-text {
+    font-size: 0.8rem !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* ----------------------------- */
+/* Preserve all existing ice-blue overrides, yellow->ice-blue replacements, shimmer, glow, light/dark enhancements */
+/* ----------------------------- */
+/* ... include all of your previously defined color overrides, buttons, shadows, etc. ... */

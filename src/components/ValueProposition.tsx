@@ -1,4 +1,4 @@
-import { Clock, Users, CheckCircle, Star, Zap, Car, MapPin, Phone } from "lucide-react";
+import { Clock, Users, CheckCircle, Star, Car, MapPin, Phone } from "lucide-react";
 
 const competitiveAdvantages = [
   {
@@ -74,9 +74,18 @@ export default function ValueProposition() {
               <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-6">{adv.title}</h3>
               <div className="space-y-4">
                 {adv.stats.map((stat, i) => (
-                  <div key={i} className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-xl">
-                    <div className="flex items-center gap-3">{stat.icon}<span className="text-slate-700 dark:text-slate-300">{stat.label}</span></div>
-                    <span className="text-2xl font-bold text-slate-800 dark:text-white">{stat.value}</span>
+                  <div key={i} className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-xl">
+                    <div className="flex items-center gap-3 mb-2 sm:mb-0">
+                      {stat.icon}
+                      <span className="text-slate-700 dark:text-slate-300">{stat.label}</span>
+                    </div>
+                    <span
+                      className={`text-2xl font-bold text-slate-800 dark:text-white ${
+                        stat.label === "Event Types" ? "break-all" : "break-words"
+                      }`}
+                    >
+                      {stat.value}
+                    </span>
                   </div>
                 ))}
               </div>
