@@ -1,0 +1,20 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAMID.app.invalser",
+        "paths": [
+          "/providers/*",
+          "/booking/*",
+          "/how-it-works",
+          "/about",
+          "/contact"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["TEAMID.app.invalser"]
+  }
+}

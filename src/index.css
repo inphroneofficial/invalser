@@ -1,0 +1,310 @@
+/* ================================
+   Find Valet — Balanced Luxury Upgrades
+   (Keep your color tokens & Tailwind)
+   ================================ */
+
+/* keep Tailwind directives at top of file in your build */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------
+   CSS upgrade layer
+   ------------------------- */
+@layer base {
+  :root{
+    /* pointer-friendly CSS variables (optional JS can update these for cursor-follow effects) */
+    --pointer-x: 50%;
+    --pointer-y: 50%;
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
+
+    /* subtle motion tuning for Balanced Luxury */
+    --lift-distance: 10px;
+    --lift-ease: cubic-bezier(.16,.9,.32,1);
+    --shine-duration: 900ms;
+    --ripple-duration: 600ms;
+    --glass-opa: 0.10;
+  }
+
+  /* small reset for interactive elements */
+  button, .btn-ice, .btn-ice-ghost {
+    -webkit-tap-highlight-color: transparent;
+    transform-origin: center center;
+    backface-visibility: hidden;
+    will-change: transform, box-shadow;
+  }
+
+  /* =========================
+     Button Enhancements
+     Balanced, tactile, "magnetic" micro-move
+     ========================= */
+
+  /* base improved button look retains your .btn-ice */
+  .btn-ice {
+    position: relative;
+    overflow: visible;
+    padding: .62rem 1.05rem;
+    border-radius: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    transition: transform 220ms var(--lift-ease), box-shadow 220ms var(--lift-ease), filter 220ms var(--lift-ease);
+    cursor: pointer;
+  }
+
+  /* Magnetic hover — subtle translate and slight scale (Balanced) */
+  .btn-ice:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow:
+      0 18px 50px rgba(6,8,20,0.32),
+      0 6px 18px hsla(var(--ice-accent) / 0.10);
+    filter: saturate(1.045);
+  }
+
+  /* Light press (tap) feedback */
+  .btn-ice:active {
+    transform: translateY(-2px) scale(.995);
+    box-shadow: 0 10px 26px rgba(6,8,20,0.28);
+  }
+
+  /* Accessible focus ring */
+  .btn-ice:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring), 0 8px 30px rgba(6,8,20,0.19);
+  }
+
+  /* Sheen (subtle moving gloss) using pseudo element */
+  .btn-ice::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    left: -40%;
+    top: -40%;
+    width: 180%;
+    height: 180%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 35%, rgba(255,255,255,0.12) 100%);
+    transform: translateX(0) rotate(12deg) scale(1.02);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 420ms var(--lift-ease), transform var(--shine-duration) linear;
+    border-radius: inherit;
+    mix-blend-mode: overlay;
+  }
+  .btn-ice:hover::before{
+    opacity: 1;
+    transform: translateX(18%) rotate(12deg) scale(1.02);
+  }
+
+  /* Gentle energy rim on hover (subtle neon halo) */
+  .btn-ice::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 14px;
+    background: radial-gradient(closest-side, hsla(var(--ice-accent) / .09), transparent 55%);
+    opacity: 0;
+    transition: opacity 320ms var(--lift-ease), transform 320ms var(--lift-ease);
+    pointer-events: none;
+  }
+  .btn-ice:hover::after { opacity: 1; transform: scale(1.02); }
+
+  /* Ripple on click using :active (CSS-only fallback) */
+  .btn-ice:active::after {
+    animation: btn-ripple var(--ripple-duration) ease-out forwards;
+  }
+  @keyframes btn-ripple {
+    0% { transform: scale(.7); opacity: .35; }
+    100% { transform: scale(1.7); opacity: 0; }
+  }
+
+  /* Ghost button variant: subtle glass fill on hover */
+  .btn-ice-ghost {
+    transition: background-color 260ms var(--lift-ease), color 260ms var(--lift-ease), transform 260ms var(--lift-ease);
+    background: transparent;
+  }
+  .btn-ice-ghost:hover {
+    background: hsla(var(--ice-accent) / 0.06);
+    transform: translateY(-4px);
+    color: white;
+  }
+
+  /* =========================
+     Card Enhancements
+     Parallax tilt (CSS-forward), ambient glow, edge sheen
+     ========================= */
+
+  /* container needs perspective for parallax */
+  .vehicle-card-premium {
+    perspective: 1200px;
+    position: relative;
+    overflow: visible;
+  }
+
+  /* inner card that actually tilts; we add layer for background sheen */
+  .vehicle-card-premium .card-inner {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    padding: 14px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, color-mix(in srgb, hsl(var(--surface-1)) 92%, black 2%), hsla(var(--ice-accent) / 0.02));
+    border: 1px solid hsla(var(--ice-accent) / 0.06);
+    box-shadow: 0 8px 28px rgba(6,10,20,0.24);
+    transition: transform 420ms var(--lift-ease), box-shadow 420ms var(--lift-ease), border-color 260ms var(--lift-ease);
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  /* tilt effect on hover — rotated slightly using CSS only */
+  .vehicle-card-premium:hover .card-inner {
+    transform: rotateX(calc(var(--tilt-x, -2deg))) rotateY(calc(var(--tilt-y, 6deg))) translateY(-10px) scale(1.008);
+    border-color: hsla(var(--ice-accent) / 0.12);
+    box-shadow: 0 22px 64px rgba(6,10,20,0.46);
+  }
+
+  /* ambient radial light that follows pointer (works well with small JS or static center) */
+  .vehicle-card-premium::before{
+    content: "";
+    position: absolute;
+    left: var(--pointer-x, 50%);
+    top: var(--pointer-y, 50%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    width: 420px;
+    height: 220px;
+    background: radial-gradient(closest-side, hsla(var(--ice-accent) / 0.12), transparent 40%);
+    filter: blur(40px);
+    opacity: 0;
+    transition: opacity 420ms var(--lift-ease), left 420ms var(--lift-ease), top 420ms var(--lift-ease);
+    border-radius: 50%;
+  }
+  .vehicle-card-premium:hover::before { opacity: 1; }
+
+  /* crisp edge sheen on top-right */
+  .vehicle-card-premium .card-inner::after {
+    content: "";
+    position: absolute;
+    right: 8%;
+    top: -6%;
+    width: 48%;
+    height: 36%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.14), rgba(255,255,255,0.02));
+    transform: translateZ(20px) rotate(8deg);
+    border-radius: 28%;
+    opacity: 0;
+    transition: opacity 520ms var(--lift-ease), transform 520ms var(--lift-ease);
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+  .vehicle-card-premium:hover .card-inner::after { opacity: 1; transform: translateZ(22px) rotate(8deg) translateY(-6px); }
+
+  /* subtle floating for hero/featured cards */
+  .vehicle-card-premium .card-inner.animate-floating {
+    animation: premiumFloat 6.8s ease-in-out infinite;
+  }
+
+  /* =========================
+     Glass & background micro-polish
+     ========================= */
+
+  /* refined glass card variants: softened rim + inner stroke */
+  .glass-card {
+    position: relative;
+    overflow: visible;
+    border-radius: 14px;
+  }
+  .glass-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(180deg, hsla(0 0% 100% / .02), transparent 30%);
+    mix-blend-mode: overlay;
+    z-index: 0;
+  }
+  .glass-card .glass-content { position: relative; z-index: 1; }
+
+  /* soft inner stroke for premium depth */
+  .glass-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(90deg, transparent, hsla(var(--ice-accent) / 0.03), transparent);
+    mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    opacity: 0.9;
+    pointer-events: none;
+  }
+
+  /* =========================
+     Subtle global ambient light for page
+     ========================= */
+  .ambient-spot {
+    position: fixed;
+    left: var(--pointer-x, 50%);
+    top: var(--pointer-y, 20%);
+    width: 680px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    background: radial-gradient(closest-side, hsla(var(--ice-accent) / 0.06), transparent 35%);
+    filter: blur(48px) saturate(120%);
+    opacity: 0;
+    transition: opacity 480ms var(--lift-ease), left 480ms var(--lift-ease), top 480ms var(--lift-ease);
+    z-index: 10;
+  }
+  .ambient-spot.visible { opacity: 1; }
+
+  /* =========================
+     Helpful small animations (balanced)
+     ========================= */
+  @keyframes premiumFloat { 0%{ transform: translateY(0); } 50%{ transform: translateY(-10px); } 100%{ transform: translateY(0); } }
+  @keyframes tinyPulse { 0%{ transform: scale(1); opacity: .95 } 50%{ transform: scale(1.02); opacity: 1 } 100%{ transform: scale(1); opacity: .95 } }
+
+  .animate-subtle-pulse { animation: tinyPulse 3s ease-in-out infinite; }
+
+  /* =========================
+     Input focus polish
+     ========================= */
+  .input-ice {
+    position: relative;
+    transition: box-shadow 220ms var(--lift-ease), transform 220ms var(--lift-ease);
+  }
+  .input-ice:focus {
+    transform: translateY(-2px);
+    box-shadow: var(--focus-ring);
+  }
+
+  /* =========================
+     Accessibility & reduced motion
+     ========================= */
+  @media (prefers-reduced-motion: reduce) {
+    .btn-ice, .btn-ice-ghost, .vehicle-card-premium .card-inner, .glass-card, .ambient-spot, .spark {
+      transition: none !important;
+      animation: none !important;
+    }
+    .btn-ice:hover, .vehicle-card-premium:hover .card-inner { transform: none !important; box-shadow: none !important; }
+    .vehicle-card-premium::before, .vehicle-card-premium .card-inner::after { opacity: 0 !important; }
+  }
+
+  /* =========================
+     Small responsive tweaks (Balanced)
+     ========================= */
+  @media (max-width: 880px) {
+    .btn-ice { padding: .5rem .85rem; font-size: .97rem; }
+    .vehicle-card-premium .card-inner { padding: 12px; border-radius: 12px; }
+    .vehicle-card-premium img { width: 96px; height: 62px; }
+    .ambient-spot { display: none; }
+  }
+
+  @media (max-width: 640px) {
+    .btn-ice { padding: .45rem .75rem; font-size: .9rem; }
+    .btn-ice::before { display: none; } /* hide sheen on tiny screens */
+    .vehicle-card-premium:hover .card-inner { transform: translateY(-6px) scale(1.005); }
+  }
+}

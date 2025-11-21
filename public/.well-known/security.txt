@@ -1,0 +1,34 @@
+Contact: mailto:invalser@gmail.com
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://invalser.com/.well-known/security.txt
+
+# Security Policy
+
+If you discover a security vulnerability in INVALSER, please report it responsibly.
+
+## Reporting
+
+Please email invalser@gmail.com with:
+- Description of the vulnerability
+- Steps to reproduce
+- Potential impact
+- Any suggested fixes
+
+We aim to respond within 48 hours and resolve critical issues within 7 days.
+
+## Scope
+
+In scope:
+- SQL Injection
+- XSS vulnerabilities
+- Authentication bypasses
+- Data exposure issues
+- CSRF vulnerabilities
+
+Out of scope:
+- Social engineering
+- Physical security
+- DDoS attacks
+
+Thank you for helping keep INVALSER secure!

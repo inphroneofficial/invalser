@@ -1,0 +1,5 @@
+# INVALSER - Ads.txt File
+# This file is used to declare authorized digital sellers for this domain
+# Currently no authorized sellers - placeholder for future advertising partnerships
+# Contact: invalser@gmail.com
+# Last Updated: 2025-01-26

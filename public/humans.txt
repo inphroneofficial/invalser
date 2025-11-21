@@ -1,0 +1,25 @@
+/* TEAM */
+
+Project: INVALSER
+Site: https://invalser.com
+Description: India's premium valet and security services platform
+Location: India
+
+/* THANKS */
+
+Technology Stack:
+- React 18 with TypeScript
+- Tailwind CSS for styling
+- Vite for blazing fast builds
+- Radix UI for accessible components
+- Lucide React for beautiful icons
+
+/* SITE */
+
+Last update: 2025/01/23
+Standards: HTML5, CSS3, ES2022
+Components: React, TypeScript, Tailwind
+Software: Vite, ESLint
+Accessibility: WCAG 2.1 AA compliant
+Performance: Lighthouse 95+ score
+SEO: Fully optimized for search engines
