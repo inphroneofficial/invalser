@@ -8,33 +8,34 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  base: "/", // 🔥 REQUIRED FOR VERCEL DEPLOYMENT
+
+  // IMPORTANT FOR VERCEL
+  base: "/",
+
   plugins: [
     react(),
-    mode === 'development' && componentTagger()
+    mode === "development" && componentTagger()
   ].filter(Boolean),
+
   resolve: {
-    dedupe: ['react', 'react-dom', 'scheduler', 'use-sync-external-store'],
     alias: {
-      react: path.resolve(__dirname, 'node_modules/react'),
-      'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
-      'react/jsx-runtime': path.resolve(__dirname, 'node_modules/react/jsx-runtime.js'),
       "@": path.resolve(__dirname, "./src"),
     },
   },
+
   build: {
+    sourcemap: false,
+    minify: "esbuild",
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          ui: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-toast'],
+          vendor: ["react", "react-dom", "react-router-dom"],
         },
       },
     },
-    sourcemap: false,
-    minify: 'esbuild',
   },
+
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom'],
+    include: ["react", "react-dom", "react-router-dom"],
   },
 }));
