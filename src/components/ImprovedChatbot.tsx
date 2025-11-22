@@ -112,7 +112,7 @@ const ImprovedChatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: '🙋‍♀️ Hi! Welcome to invalser - India\'s Premier Service Platform! ✨\n\n🎉 **Recent Updates:**\n✅ Enhanced Performance & Speed\n✅ Improved Dark/Light Mode\n✅ Optimized Loading Experience\n✅ Better Color Accessibility\n\n💼 **I can help you with:**\n🚗 Premium Valet Services\n🛡️ Professional Security Solutions\n💼 Corporate Packages\n🎉 Event Services\n\nWhat would you like to know? 🤔',
+      text: '🙋‍♀️ Hi! Welcome to FindValet - India\'s Premier Service Platform! ✨\n\n🎉 **Recent Updates:**\n✅ Enhanced Performance & Speed\n✅ Improved Dark/Light Mode\n✅ Optimized Loading Experience\n✅ Better Color Accessibility\n\n💼 **I can help you with:**\n🚗 Premium Valet Services\n🛡️ Professional Security Solutions\n💼 Corporate Packages\n🎉 Event Services\n\nWhat would you like to know? 🤔',
       isBot: true,
       timestamp: new Date(),
       quickReplies: QUICK_START_OPTIONS
@@ -360,7 +360,7 @@ Which topic interests you most? I can provide detailed information! 🎯`,
 
   // Chat window - optimized responsive sizing (smaller on desktop, perfect on mobile)
   return (
-    <div className={`fixed bottom-2 right-2 sm:bottom-4 sm:right-4 z-30 transition-all duration-300 ${
+    <div className={`fixed bottom-2 right-2 sm:bottom-4 sm:right-4 z-30 transition-all duration-300 touch-manipulation ${
       isMinimized 
         ? 'w-64 sm:w-72 h-12' 
         : 'w-[calc(100vw-1rem)] sm:w-80 md:w-96 h-[70vh] sm:h-[450px] md:h-[500px] lg:h-[520px]'
