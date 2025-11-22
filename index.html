@@ -2,14 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Correct single viewport meta tag to prevent zooming -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <!-- Viewport for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     
     <title>INVALSER - India's Premium Valet & Security Services | Instant Booking</title>
-    
     <meta name="description" content="INVALSER: Book premium valet and security services across India. Verified professionals for weddings, events, and corporates. Instant booking, transparent pricing." />
     <meta name="keywords" content="valet services india, security services india, book valet online, event valet, corporate security, bodyguards, bouncers, valet booking, premium services" />
     <meta name="author" content="INVALSER Team" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://invalser.com" />
+
+    <!-- Favicon & Icons -->
     <link rel="icon" href="/invalser.png" />
     <link rel="apple-touch-icon" href="/invalser.png" sizes="180x180" />
 
@@ -18,10 +21,8 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="theme-color" content="#3B82F6" />
     <link rel="manifest" href="/manifest.json" />
-
-    <!-- Apple PWA -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="INVALSER" />
 
     <!-- Open Graph -->
@@ -33,19 +34,110 @@
     <meta property="og:image" content="/invalser.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="INVALSER - Premium Services" />
     <meta property="og:locale" content="en_IN" />
 
-    <!-- Twitter -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="INVALSER - India's Premium Valet & Security Services" />
     <meta name="twitter:description" content="Book premium valet and security services instantly. Verified professionals across India." />
     <meta name="twitter:image" content="/invalser.png" />
+    <meta name="twitter:image:alt" content="INVALSER - Premium Services" />
+    <meta name="twitter:site" content="@INVALSER" />
+    <meta name="twitter:creator" content="@INVALSER" />
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Styles (you can also link external index.css) -->
+    <!-- Styles -->
     <link rel="stylesheet" href="/index.css">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "INVALSER",
+      "description": "India's premium valet and security services platform - Find and book verified professionals for events and corporate needs",
+      "url": "https://invalser.com",
+      "logo": "https://invalser.com/invalser.png",
+      "image": "https://invalser.com/invalser.png",
+      "priceRange": "₹₹",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN",
+        "addressLocality": "India"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "serviceType": ["Valet Services", "Event Valet", "Security Services", "Bodyguards", "Bouncers"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "500",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "sameAs": [
+        "https://twitter.com/INVALSER",
+        "https://facebook.com/INVALSER",
+        "https://instagram.com/INVALSER",
+        "https://linkedin.com/company/invalser"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "INVALSER",
+      "url": "https://invalser.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://invalser.com/providers?search={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is FindValet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FindValet is India's #1 premium valet services platform with 500+ verified professionals for weddings, events, and personal use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much do valet services cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Valet services start from ₹950-2,500/hour. Security services range from ₹1,200-5,000/day depending on service type."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which cities does FindValet serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FindValet operates across all major Indian cities including Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune, and more."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
 
   <body>
@@ -100,130 +192,46 @@
     </script>
 
     <style>
-  /* Mobile fixes for inputs/buttons */
-  input, select, textarea, button {
-    font-size: 16px; /* Prevent mobile zoom */
-    outline: none;
-  }
+      /* Mobile fixes for chatbot and booking form */
+      input, select, textarea, button {
+        font-size: 16px;
+      }
 
-  /* Booking Form */
-  .booking-form {
-    width: 95%;
-    max-width: 500px;
-    margin: 1rem auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
+      .booking-form {
+        width: 95%;
+        max-width: 500px;
+        margin: 1rem auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .booking-form .form-group {
+        flex: 1 1 100%;
+      }
+      .booking-form input, .booking-form select, .booking-form textarea, .booking-form button {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.6rem 0.8rem;
+        box-sizing: border-box;
+      }
 
-  .booking-form .form-group {
-    flex: 1 1 100%;
-  }
-
-  .booking-form input,
-  .booking-form select,
-  .booking-form textarea,
-  .booking-form button {
-    width: 100%;
-    max-width: 100%;
-    padding: 0.6rem 0.8rem;
-    box-sizing: border-box;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-  }
-
-  .booking-form button {
-    background-color: #3B82F6;
-    color: #fff;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s ease;
-  }
-
-  .booking-form button:hover {
-    background-color: #2563eb;
-  }
-
-  /* Chatbot */
-  .chatbot-card {
-    position: fixed;
-    bottom: env(safe-area-inset-bottom, 1rem);
-    right: 1rem;
-    width: 85vw;       /* Mobile: nearly full width */
-    max-width: 320px;
-    height: 380px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    z-index: 9999;
-    touch-action: manipulation;
-  }
-
-  .chatbot-header {
-    background-color: #3B82F6;
-    color: #fff;
-    padding: 0.8rem 1rem;
-    font-weight: 600;
-    text-align: center;
-  }
-
-  .chatbot-messages {
-    flex: 1;
-    padding: 0.8rem 1rem;
-    overflow-y: auto;
-    background-color: #f1f5f9;
-  }
-
-  .chatbot-input {
-    display: flex;
-    border-top: 1px solid #ccc;
-  }
-
-  .chatbot-input input {
-    flex: 1;
-    padding: 0.6rem 0.8rem;
-    border: none;
-  }
-
-  .chatbot-input button {
-    background-color: #3B82F6;
-    color: #fff;
-    border: none;
-    padding: 0 1rem;
-    cursor: pointer;
-  }
-
-  /* ----------------------------- */
-  /* Responsive width adjustments */
-  /* ----------------------------- */
-  @media (min-width: 768px) {
-    /* Tablets: smaller */
-    .chatbot-card {
-      width: 250px;
-      height: 320px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    /* Laptops: smaller */
-    .chatbot-card {
-      width: 200px;
-      height: 280px;
-    }
-  }
-
-  @media (min-width: 1440px) {
-    /* Large desktops: smallest */
-    .chatbot-card {
-      width: 180px;
-      height: 250px;
-    }
-  }
-</style>
-
+      /* Chatbot responsive */
+      .chatbot-card {
+        position: fixed;
+        width: 90vw;
+        max-width: 350px;
+        bottom: env(safe-area-inset-bottom, 1rem);
+        right: 1rem;
+        z-index: 9999;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        border-radius: 12px;
+        background-color: #fff;
+      }
+      @media (min-width: 768px) {
+        .chatbot-card {
+          width: 320px;
+        }
+      }
+    </style>
   </body>
 </html>
