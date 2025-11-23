@@ -343,16 +343,25 @@ Which topic interests you most? I can provide detailed information! 🎯`,
   // Floating chat button with gentle pulse animation
   if (!isOpen) {
     return (
-      <div className="fixed bottom-4 right-4 z-30 transition-all duration-300">
-        <Button
+      <div className="fixed bottom-4 right-4 z-[9999] pointer-events-auto">
+        <button
           onClick={() => setIsOpen(true)}
-          className="rounded-full w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-ice-blue-500 to-ice-blue-600 hover:from-ice-blue-600 hover:to-ice-blue-700 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-gentle-pulse"
-          size="sm"
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            setIsOpen(true);
+          }}
+          className="rounded-full w-16 h-16 sm:w-16 sm:h-16 bg-gradient-to-r from-ice-blue-500 to-ice-blue-600 hover:from-ice-blue-600 hover:to-ice-blue-700 shadow-lg hover:shadow-2xl transition-all duration-300 active:scale-95 flex items-center justify-center cursor-pointer border-0"
+          style={{ 
+            touchAction: 'manipulation',
+            WebkitTapHighlightColor: 'transparent'
+          }}
+          type="button"
+          aria-label="Open chat"
         >
-          <MessageCircle className="h-5 w-5 sm:h-7 sm:w-7 text-white" />
-        </Button>
-        <div className="absolute -top-1 -right-1 w-5 h-5 sm:w-6 sm:h-6 bg-ice-blue-600 rounded-full flex items-center justify-center animate-gentle-pulse">
-          <span className="text-xs sm:text-sm text-white font-bold">💬</span>
+          <MessageCircle className="h-7 w-7 text-white" />
+        </button>
+        <div className="absolute -top-1 -right-1 w-6 h-6 bg-ice-blue-600 rounded-full flex items-center justify-center pointer-events-none">
+          <span className="text-sm text-white font-bold">💬</span>
         </div>
       </div>
     );
@@ -360,11 +369,11 @@ Which topic interests you most? I can provide detailed information! 🎯`,
 
   // Chat window - optimized responsive sizing (smaller on desktop, perfect on mobile)
   return (
-    <div className={`fixed bottom-2 right-2 sm:bottom-4 sm:right-4 z-30 transition-all duration-300 touch-manipulation ${
+    <div className={`fixed bottom-2 right-2 sm:bottom-4 sm:right-4 z-[9999] transition-all duration-300 pointer-events-auto ${
       isMinimized 
         ? 'w-64 sm:w-72 h-12' 
         : 'w-[calc(100vw-1rem)] sm:w-80 md:w-96 h-[70vh] sm:h-[450px] md:h-[500px] lg:h-[520px]'
-    }`}>
+    }`} style={{ touchAction: 'manipulation' }}>
       <Card className="h-full flex flex-col shadow-2xl border-border bg-card/98 backdrop-blur-sm">
         {/* Header */}
         <CardHeader className="pb-2 bg-gradient-to-r from-ice-blue-500 to-ice-blue-600 text-white rounded-t-lg flex-shrink-0">
