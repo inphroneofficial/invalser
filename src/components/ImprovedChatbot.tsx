@@ -343,25 +343,23 @@ Which topic interests you most? I can provide detailed information! 🎯`,
   // Floating chat button with gentle pulse animation
   if (!isOpen) {
     return (
-      <div className="fixed bottom-4 right-4 z-[9999] pointer-events-auto">
+      <div className="fixed bottom-4 right-4 z-[9999]">
         <button
           onClick={() => setIsOpen(true)}
-          onTouchEnd={(e) => {
-            e.preventDefault();
-            setIsOpen(true);
-          }}
-          className="rounded-full w-16 h-16 sm:w-16 sm:h-16 bg-gradient-to-r from-ice-blue-500 to-ice-blue-600 hover:from-ice-blue-600 hover:to-ice-blue-700 shadow-lg hover:shadow-2xl transition-all duration-300 active:scale-95 flex items-center justify-center cursor-pointer border-0"
+          className="rounded-full w-16 h-16 bg-gradient-to-r from-ice-blue-500 to-ice-blue-600 hover:from-ice-blue-600 hover:to-ice-blue-700 shadow-lg hover:shadow-2xl transition-all duration-300 active:scale-95 flex items-center justify-center cursor-pointer border-0 touch-manipulation select-none"
           style={{ 
-            touchAction: 'manipulation',
-            WebkitTapHighlightColor: 'transparent'
+            WebkitTapHighlightColor: 'transparent',
+            WebkitTouchCallout: 'none',
+            WebkitUserSelect: 'none',
+            userSelect: 'none'
           }}
           type="button"
           aria-label="Open chat"
         >
-          <MessageCircle className="h-7 w-7 text-white" />
+          <MessageCircle className="h-7 w-7 text-white pointer-events-none" />
         </button>
         <div className="absolute -top-1 -right-1 w-6 h-6 bg-ice-blue-600 rounded-full flex items-center justify-center pointer-events-none">
-          <span className="text-sm text-white font-bold">💬</span>
+          <span className="text-sm text-white font-bold select-none">💬</span>
         </div>
       </div>
     );
