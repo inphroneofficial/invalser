@@ -153,11 +153,11 @@ export default function HeroSearchForm() {
                 <DropdownMenuTrigger asChild>
                   <Button 
                     variant="ghost"
-                    className="w-full justify-between bg-white/15 text-white border border-white/40 hover:bg-white/25 hover:border-white/60 pl-12 sm:pl-12 pr-2 h-9 sm:h-10 md:h-12 text-xs sm:text-sm backdrop-blur-sm transition-all duration-300 font-medium"
+                    className="w-full justify-between bg-white/15 text-white border border-white/40 hover:bg-white/25 hover:border-white/60 pl-14 sm:pl-12 pr-2 h-9 sm:h-10 md:h-12 text-xs sm:text-sm backdrop-blur-sm transition-all duration-300 font-medium group animate-fade-in-up animate-delay-200"
                   >
-                    <MapPin className="absolute left-3 sm:left-3 top-1/2 transform -translate-y-1/2 text-white/70 h-3.5 w-3.5 sm:h-4 sm:w-4 group-hover:text-ice-blue-300 transition-colors flex-shrink-0" />
-                    <span className="truncate">{selectedCity || "Choose your city"}</span>
-                    <ChevronDown className="ml-1 sm:ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
+                    <MapPin className="absolute left-2 sm:left-3 top-1/2 transform -translate-y-1/2 text-white/80 h-4 w-4 sm:h-4.5 sm:w-4.5 group-hover:text-ice-blue-300 group-hover:scale-110 transition-all duration-300 flex-shrink-0 animate-gentle-pulse" />
+                    <span className="truncate pl-4 sm:pl-2">{selectedCity || "Choose your city"}</span>
+                    <ChevronDown className="ml-1 sm:ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0 group-hover:rotate-180 transition-transform duration-300" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-full max-h-60 overflow-auto bg-white/98 dark:bg-gray-900/98 backdrop-blur-xl border border-ice-blue-200/50 dark:border-ice-blue-700/50 z-50 shadow-2xl">

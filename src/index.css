@@ -115,22 +115,27 @@
     overflow-x: hidden;
     background: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 50%, hsl(200 100% 96%) 100%);
     color: hsl(222 84% 4.9%);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-}
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
 
-.touch-manipulation {
-  touch-action: manipulation;
-  -webkit-user-select: none;
-  user-select: none;
-}
+  button, a, input, textarea, select {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
 
-.select-none {
-  -webkit-user-select: none;
-  user-select: none;
-}
+  .touch-manipulation {
+    touch-action: manipulation !important;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .select-none {
+    -webkit-user-select: none;
+    user-select: none;
+  }
 
   .dark body {
     background: linear-gradient(135deg, hsl(222 84% 4.9%) 0%, hsl(222 47% 11%) 50%, hsl(215 28% 17%) 100%);
@@ -327,6 +332,72 @@
   }
 }
 
+/* New Modern Animations */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+}
+
 /* Utility animations */
 .animate-float {
   animation: float 6s ease-in-out infinite;
@@ -378,6 +449,70 @@
 
 .animate-gentle-pulse {
   animation: gentlePulse 3s ease-in-out infinite;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.animate-zoom-in {
+  animation: zoomIn 0.4s ease-out forwards;
+}
+
+.animate-ripple {
+  animation: ripple 1s ease-out;
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Hover effects */
+.hover-lift {
+  @apply transition-all duration-300;
+}
+
+.hover-lift:hover {
+  @apply -translate-y-2 shadow-2xl;
+}
+
+.hover-glow {
+  @apply transition-all duration-300;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px hsla(199 89% 48% / 0.5);
+}
+
+/* Interactive button effects */
+.btn-interactive {
+  @apply transition-all duration-300 transform;
+}
+
+.btn-interactive:hover {
+  @apply scale-105 shadow-2xl;
+}
+
+.btn-interactive:active {
+  @apply scale-95;
+}
+
+/* Gradient animations */
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+.animate-smooth-bounce {
+  animation: smooth-bounce 2s ease-in-out infinite;
+}
+
+.animate-rotate-3d {
+  animation: rotate-3d 10s linear infinite;
 }
 
 /* Enhanced delay utilities */
@@ -461,6 +596,34 @@
   }
 }
 
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Advanced smooth animations */
+@keyframes smooth-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotate-3d {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
 /* Enhanced mobile responsiveness - Ice Blue Theme */
 @media (max-width: 640px) {
   .mobile-nav-item {
@@ -489,7 +652,14 @@
 
 /* Better theme transition */
 * {
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Prevent transition on page load */
+.preload * {
+  transition: none !important;
 }
 
 /* Light mode specific improvements - Ice Blue Theme */

@@ -9,6 +9,7 @@ import { LocationInfo } from "@/components/providers/LocationInfo";
 import { StatsSection } from "@/components/providers/StatsSection";
 import FilterControls from "@/components/providers/FilterControls";
 import { EmptyState } from "@/components/providers/EmptyState";
+import { ProviderCardSkeleton } from "@/components/ui/skeleton-loader";
 import { searchProviders } from "@/services/providerService";
 import { LocationMatchResult } from "@/types/provider";
 import { Motion } from "@/components/ui/motion";
@@ -24,6 +25,7 @@ const Providers = () => {
   const [sortBy, setSortBy] = useState("rating");
   const [showVerifiedOnly, setShowVerifiedOnly] = useState(false);
   const [showPremiumOnly, setShowPremiumOnly] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const city = searchParams.get("city") || "";
@@ -36,8 +38,13 @@ const Providers = () => {
     setSelectedArea(area);
     setSearchQuery(query);
 
-    const result = searchProviders(query, city, state, area);
-    setMatchResult(result);
+    // Simulate loading state
+    setIsLoading(true);
+    setTimeout(() => {
+      const result = searchProviders(query, city, state, area);
+      setMatchResult(result);
+      setIsLoading(false);
+    }, 800);
   }, [searchParams]);
 
   const handleSearch = (query: string, city: string, state: string, area: string) => {
@@ -119,7 +126,13 @@ const Providers = () => {
           />
 
           {/* Results Section */}
-          {matchResult.providers.length === 0 ? (
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
+              {Array.from({ length: 6 }).map((_, index) => (
+                <ProviderCardSkeleton key={index} />
+              ))}
+            </div>
+          ) : matchResult.providers.length === 0 ? (
             <EmptyState onClearFilters={handleClearFilters} />
           ) : (
             <Motion variant="slideUp" delay={400}>
@@ -147,7 +160,7 @@ const Providers = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a
-                    href="https://wa.me/9550464957"
+                    href="https://wa.me/8499090369"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
