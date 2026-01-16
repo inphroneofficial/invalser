@@ -8,19 +8,12 @@ import ServiceProviderCTA from "@/components/ServiceProviderCTA";
 import FAQ from "@/components/FAQ";
 import Feedback from "@/components/Feedback";
 import Footer from "@/components/Footer";
-import ImprovedChatbot from "@/components/ImprovedChatbot";
+import ScrollToTop from "@/components/ui/scroll-to-top";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { usePerformanceMonitoring } from "@/hooks/use-performance";
-import { useAccessibility } from "@/hooks/use-accessibility";
-import { useRouteTransition } from "@/hooks/use-route-transition";
 
 const Index = () => {
-  usePerformanceMonitoring();
-  useAccessibility();
-  useRouteTransition();
-
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Navbar />
       <main id="main-content" role="main" aria-label="Main content">
         <Hero />
@@ -33,7 +26,7 @@ const Index = () => {
         <ScrollReveal variant="slide-up" delay={100}>
           <ServiceProviderCTA />
         </ScrollReveal>
-        <ScrollReveal variant="zoom" delay={200}>
+        <ScrollReveal variant="zoom" delay={100}>
           <Testimonials />
         </ScrollReveal>
         <ScrollReveal variant="slide-up" delay={100}>
@@ -44,7 +37,7 @@ const Index = () => {
         </ScrollReveal>
       </main>
       <Footer />
-      <ImprovedChatbot />
+      <ScrollToTop />
     </div>
   );
 };

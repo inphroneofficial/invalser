@@ -58,7 +58,7 @@ export const ValetProfileCard: React.FC<ValetProfileCardProps> = ({ provider, in
     >
       <PremiumCard 
         variant="glass" 
-        className="overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 bg-gradient-to-br from-white/95 via-white/90 to-ice-blue-50/80 dark:from-gray-900/95 dark:via-gray-900/90 dark:to-gray-800/80"
+        className="overflow-hidden card-interactive border-glow border-0 bg-gradient-to-br from-white/95 via-white/90 to-ice-blue-50/80 dark:from-gray-900/95 dark:via-gray-900/90 dark:to-gray-800/80"
       >
         {/* Hero Image Section */}
         <div className="relative h-64 overflow-hidden">
@@ -183,7 +183,7 @@ export const ValetProfileCard: React.FC<ValetProfileCardProps> = ({ provider, in
             <PremiumButton
               variant="outline"
               size="sm"
-              className="text-gray-700 dark:text-gray-200 border-ice-blue-300 dark:border-ice-blue-600 hover:border-ice-blue-500 dark:hover:border-ice-blue-400 hover:text-ice-blue-700 dark:hover:text-ice-blue-300 hover:bg-ice-blue-50 dark:hover:bg-ice-blue-900/20 transition-all"
+              className="btn-press ripple text-gray-700 dark:text-gray-200 border-ice-blue-300 dark:border-ice-blue-600 hover:border-ice-blue-500 dark:hover:border-ice-blue-400 hover:text-ice-blue-700 dark:hover:text-ice-blue-300 hover:bg-ice-blue-50 dark:hover:bg-ice-blue-900/20 transition-all"
               asChild
             >
               <Link 
@@ -197,7 +197,7 @@ export const ValetProfileCard: React.FC<ValetProfileCardProps> = ({ provider, in
               variant="primary"
               size="sm"
               glow
-              className="bg-gradient-to-r from-ice-blue-600 to-ice-blue-500 hover:from-ice-blue-700 hover:to-ice-blue-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
+              className="btn-press ripple bg-gradient-to-r from-ice-blue-600 to-ice-blue-500 hover:from-ice-blue-700 hover:to-ice-blue-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
               asChild
             >
               <Link 

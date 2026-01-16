@@ -47,7 +47,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <PremiumButton variant="primary" size="lg" glow>
               <Search className="mr-2 h-5 w-5" />
-              invalsers
+              Find Valets
             </PremiumButton>
             <PremiumButton variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-navy-dark">
               Learn More

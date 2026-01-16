@@ -123,8 +123,8 @@ const ImprovedBookingForm: React.FC = () => {
       description: 'Expert vehicle handling and parking solutions',
       icon: Car,
       category: 'Valet',
-      price: '₹200/hour',
-      pricePerUnit: 200,
+      price: '₹150/hour',
+      pricePerUnit: 150,
       billingType: 'hour'
     },
     {
@@ -153,8 +153,8 @@ const ImprovedBookingForm: React.FC = () => {
       description: 'Comprehensive security for events and functions',
       icon: Eye,
       category: 'Security',
-      price: '₹200/hour',
-      pricePerUnit: 200,
+      price: '₹150/hour',
+      pricePerUnit: 150,
       billingType: 'hour'
     },
     {
@@ -673,30 +673,30 @@ Thank you! 🙏`;
             )}
 
             {formData.selectedServices.includes('bouncers') && (
-              <div className="space-y-2">
+              <div className="space-y-3 p-3 sm:p-4 bg-muted/30 rounded-lg border border-border">
                 <Label className="flex items-center gap-2 text-sm sm:text-base">
-                  <Users className="w-4 h-4" />
-                  Number of Bouncers
+                  <Users className="w-4 h-4 flex-shrink-0 text-primary" />
+                  <span className="font-medium">Number of Bouncers</span>
                 </Label>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center gap-4 sm:gap-6">
                   <Button
                     type="button"
                     variant="outline"
                     size="sm"
                     onClick={() => handleInputChange('numberOfBouncers', Math.max(1, formData.numberOfBouncers - 1).toString())}
-                    className="h-10 w-10"
+                    className="h-10 w-10 sm:h-12 sm:w-12 p-0 rounded-full text-lg font-bold"
                   >
                     -
                   </Button>
-                  <div className="text-center min-w-[60px]">
-                    <span className="text-2xl font-bold">{formData.numberOfBouncers}</span>
+                  <div className="text-center min-w-[60px] sm:min-w-[70px] px-4 py-2 bg-primary/10 rounded-xl">
+                    <span className="text-2xl sm:text-3xl font-bold text-foreground">{formData.numberOfBouncers}</span>
                   </div>
                   <Button
                     type="button"
                     variant="outline"
                     size="sm"
                     onClick={() => handleInputChange('numberOfBouncers', Math.min(50, formData.numberOfBouncers + 1).toString())}
-                    className="h-10 w-10"
+                    className="h-10 w-10 sm:h-12 sm:w-12 p-0 rounded-full text-lg font-bold"
                   >
                     +
                   </Button>
@@ -705,30 +705,30 @@ Thank you! 🙏`;
             )}
 
             {formData.selectedServices.includes('bodyguards') && (
-              <div className="space-y-2">
+              <div className="space-y-3 p-3 sm:p-4 bg-muted/30 rounded-lg border border-border">
                 <Label className="flex items-center gap-2 text-sm sm:text-base">
-                  <Shield className="w-4 h-4" />
-                  Number of Bodyguards
+                  <Shield className="w-4 h-4 flex-shrink-0 text-primary" />
+                  <span className="font-medium">Number of Bodyguards</span>
                 </Label>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center gap-4 sm:gap-6">
                   <Button
                     type="button"
                     variant="outline"
                     size="sm"
                     onClick={() => handleInputChange('numberOfBodyguards', Math.max(1, formData.numberOfBodyguards - 1).toString())}
-                    className="h-10 w-10"
+                    className="h-10 w-10 sm:h-12 sm:w-12 p-0 rounded-full text-lg font-bold"
                   >
                     -
                   </Button>
-                  <div className="text-center min-w-[60px]">
-                    <span className="text-2xl font-bold">{formData.numberOfBodyguards}</span>
+                  <div className="text-center min-w-[60px] sm:min-w-[70px] px-4 py-2 bg-primary/10 rounded-xl">
+                    <span className="text-2xl sm:text-3xl font-bold text-foreground">{formData.numberOfBodyguards}</span>
                   </div>
                   <Button
                     type="button"
                     variant="outline"
                     size="sm"
                     onClick={() => handleInputChange('numberOfBodyguards', Math.min(50, formData.numberOfBodyguards + 1).toString())}
-                    className="h-10 w-10"
+                    className="h-10 w-10 sm:h-12 sm:w-12 p-0 rounded-full text-lg font-bold"
                   >
                     +
                   </Button>
@@ -737,30 +737,30 @@ Thank you! 🙏`;
             )}
 
             {formData.selectedServices.includes('event-security') && (
-              <div className="space-y-2">
+              <div className="space-y-3 p-3 sm:p-4 bg-muted/30 rounded-lg border border-border">
                 <Label className="flex items-center gap-2 text-sm sm:text-base">
-                  <Eye className="w-4 h-4" />
-                  Number of Event Security Personnel
+                  <Eye className="w-4 h-4 flex-shrink-0 text-primary" />
+                  <span className="font-medium">Event Security Personnel</span>
                 </Label>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center gap-4 sm:gap-6">
                   <Button
                     type="button"
                     variant="outline"
                     size="sm"
                     onClick={() => handleInputChange('numberOfEventSecurity', Math.max(1, formData.numberOfEventSecurity - 1).toString())}
-                    className="h-10 w-10"
+                    className="h-10 w-10 sm:h-12 sm:w-12 p-0 rounded-full text-lg font-bold"
                   >
                     -
                   </Button>
-                  <div className="text-center min-w-[60px]">
-                    <span className="text-2xl font-bold">{formData.numberOfEventSecurity}</span>
+                  <div className="text-center min-w-[60px] sm:min-w-[70px] px-4 py-2 bg-primary/10 rounded-xl">
+                    <span className="text-2xl sm:text-3xl font-bold text-foreground">{formData.numberOfEventSecurity}</span>
                   </div>
                   <Button
                     type="button"
                     variant="outline"
                     size="sm"
                     onClick={() => handleInputChange('numberOfEventSecurity', Math.min(50, formData.numberOfEventSecurity + 1).toString())}
-                    className="h-10 w-10"
+                    className="h-10 w-10 sm:h-12 sm:w-12 p-0 rounded-full text-lg font-bold"
                   >
                     +
                   </Button>
@@ -769,30 +769,30 @@ Thank you! 🙏`;
             )}
 
             {formData.selectedServices.includes('corporate-security') && (
-              <div className="space-y-2">
+              <div className="space-y-3 p-3 sm:p-4 bg-muted/30 rounded-lg border border-border">
                 <Label className="flex items-center gap-2 text-sm sm:text-base">
-                  <Building className="w-4 h-4" />
-                  Number of Corporate Security Personnel
+                  <Building className="w-4 h-4 flex-shrink-0 text-primary" />
+                  <span className="font-medium">Corporate Security Personnel</span>
                 </Label>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center gap-4 sm:gap-6">
                   <Button
                     type="button"
                     variant="outline"
                     size="sm"
                     onClick={() => handleInputChange('numberOfCorporateSecurity', Math.max(1, formData.numberOfCorporateSecurity - 1).toString())}
-                    className="h-10 w-10"
+                    className="h-10 w-10 sm:h-12 sm:w-12 p-0 rounded-full text-lg font-bold"
                   >
                     -
                   </Button>
-                  <div className="text-center min-w-[60px]">
-                    <span className="text-2xl font-bold">{formData.numberOfCorporateSecurity}</span>
+                  <div className="text-center min-w-[60px] sm:min-w-[70px] px-4 py-2 bg-primary/10 rounded-xl">
+                    <span className="text-2xl sm:text-3xl font-bold text-foreground">{formData.numberOfCorporateSecurity}</span>
                   </div>
                   <Button
                     type="button"
                     variant="outline"
                     size="sm"
                     onClick={() => handleInputChange('numberOfCorporateSecurity', Math.min(50, formData.numberOfCorporateSecurity + 1).toString())}
-                    className="h-10 w-10"
+                    className="h-10 w-10 sm:h-12 sm:w-12 p-0 rounded-full text-lg font-bold"
                   >
                     +
                   </Button>

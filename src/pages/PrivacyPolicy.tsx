@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
     {
       icon: FileText,
       title: "Your Rights",
-      content: "You have the right to access, update, or delete your personal information. Contact us at invalser@gmail.com for any data-related requests."
+      content: "You have the right to access, update, or delete your personal information. Contact us at megtk17@gmail.com for any data-related requests."
     },
     {
       icon: Shield,
@@ -95,11 +95,11 @@ export default function PrivacyPolicy() {
                 If you have any questions or concerns about our privacy practices, please contact us.
               </p>
               <a
-                href="mailto:invalser@gmail.com"
+                href="mailto:megtk17@gmail.com"
                 className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-sm md:text-base"
               >
                 <Shield className="w-4 h-4 md:w-5 md:h-5" />
-                invalser@gmail.com
+                megtk17@gmail.com
               </a>
             </CardContent>
           </Card>

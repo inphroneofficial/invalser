@@ -46,7 +46,7 @@ Crawl-delay: 2
 Sitemap: https://invalser.com/sitemap.xml
 
 # Important pages for SEO
-# /providers - invalser and security services
+# /providers - Find valet and security services
 # /how-it-works - Learn about our process
 # /about - About INVALSER
 # /contact - Contact information

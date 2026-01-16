@@ -1,150 +1,155 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, User } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, User, Car, Key, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DeveloperModal } from "@/components/DeveloperModal";
+
+const footerLinks = {
+  company: [
+    { name: "Find Services", path: "/providers" },
+    { name: "How It Works", path: "/how-it-works" },
+    { name: "About Us", path: "/about" },
+    { name: "Contact", path: "/contact" },
+  ],
+  resources: [
+    { name: "Privacy Policy", path: "/privacy-policy" },
+    { name: "Terms of Service", path: "/terms-of-service" },
+    { name: "Cookie Policy", path: "/cookie-policy" },
+    { name: "Help Center", path: "/contact" },
+  ],
+};
+
+const socialLinks = [
+  { icon: Facebook, href: "#", label: "Facebook" },
+  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Linkedin, href: "#", label: "LinkedIn" },
+];
 
 export default function Footer() {
   const [isDeveloperModalOpen, setIsDeveloperModalOpen] = useState(false);
 
   return (
     <>
-      <footer className="bg-navy dark:bg-navy-dark text-white">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div>
-              <Link to="/" className="flex items-center space-x-2 mb-6">
-                <span className="text-2xl font-serif font-bold">
-                  Invalser  <span className="text-gold">Platform</span>
+      <footer className="bg-foreground dark:bg-card text-background dark:text-foreground">
+        <div className="container py-12 sm:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+            {/* Brand */}
+            <div className="lg:col-span-1">
+              <Link to="/" className="flex items-center gap-2 mb-4 group">
+                {/* Animated icon for footer */}
+                <div className="relative w-9 h-9 flex items-center justify-center bg-background/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                  <Car className="w-5 h-5 text-primary" />
+                  <Key className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 text-primary/70" />
+                </div>
+                <span className="text-2xl font-bold text-background dark:text-foreground tracking-tight">
+                  INVALSER
                 </span>
               </Link>
-              <p className="text-white/70 mb-6">
-                Premium valet and security services in major cities across India and international destinations.
+              <p className="text-background/60 dark:text-muted-foreground mb-6 text-sm">
+                Premium valet and security services across major cities in India.
               </p>
-              <div className="flex space-x-4">
-                <a href="#" className="text-white/70 hover:text-gold transition-colors">
-                  <Facebook className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-white/70 hover:text-gold transition-colors">
-                  <Twitter className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-white/70 hover:text-gold transition-colors">
-                  <Instagram className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-white/70 hover:text-gold transition-colors">
-                  <Linkedin className="h-5 w-5" />
-                </a>
+              <div className="flex gap-3">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    className="w-9 h-9 rounded-lg bg-background/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                    aria-label={social.label}
+                  >
+                    <social.icon className="w-4 h-4" />
+                  </a>
+                ))}
               </div>
             </div>
 
+            {/* Quick Links */}
             <div>
-              <h3 className="text-lg font-serif font-semibold mb-6">Quick Links</h3>
+              <h4 className="font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-3">
-                <li>
-                  <Link to="/providers" className="text-white/70 hover:text-gold transition-colors">
-                    Find Services
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/how-it-works" className="text-white/70 hover:text-gold transition-colors">
-                    How It Works
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/about" className="text-white/70 hover:text-gold transition-colors">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact" className="text-white/70 hover:text-gold transition-colors">
-                    Contact Us
-                  </Link>
-                </li>
+                {footerLinks.company.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      to={link.path}
+                      className="text-background/60 dark:text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
+            {/* Resources */}
             <div>
-              <h3 className="text-lg font-serif font-semibold mb-6">Resources</h3>
+              <h4 className="font-semibold mb-4">Resources</h4>
               <ul className="space-y-3">
-                <li>
-                  <Link to="/how-it-works" className="text-white/70 hover:text-gold transition-colors">
-                    How It Works
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/about" className="text-white/70 hover:text-gold transition-colors">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/privacy-policy" className="text-white/70 hover:text-gold transition-colors">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/cookie-policy" className="text-white/70 hover:text-gold transition-colors">
-                    Cookie Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/terms-of-service" className="text-white/70 hover:text-gold transition-colors">
-                    Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact" className="text-white/70 hover:text-gold transition-colors">
-                    Help Center
-                  </Link>
-                </li>
+                {footerLinks.resources.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      to={link.path}
+                      className="text-background/60 dark:text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
+            {/* Contact */}
             <div>
-              <h3 className="text-lg font-serif font-semibold mb-6">Contact Us</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <MapPin className="h-5 w-5 mr-2 text-gold shrink-0 mt-0.5" />
-                  <span className="text-white/70">
-                    Hyderabad, India
+              <h4 className="font-semibold mb-4">Contact Us</h4>
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span className="text-background/60 dark:text-muted-foreground">
+                    Hyderabad, Telangana, India
                   </span>
                 </li>
-                <li className="flex items-center">
-                  <Phone className="h-5 w-5 mr-2 text-gold" />
-                  <span className="text-white/70">+91 9550464957</span>
+                <li className="flex items-center gap-3">
+                  <Phone className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-background/60 dark:text-muted-foreground">+91 8008133117</span>
                 </li>
-                <li className="flex items-center">
-                  <Mail className="h-5 w-5 mr-2 text-gold" />
-                  <span className="text-white/70">invalser@gmail.com</span>
+                <li className="flex items-center gap-3">
+                  <Mail className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-background/60 dark:text-muted-foreground">info@invalser.com</span>
                 </li>
               </ul>
               
-              <div className="mt-6">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setIsDeveloperModalOpen(true)}
-                  className="bg-white text-gray-900 border-ice-blue-300 hover:bg-ice-blue-50 dark:bg-white/10 dark:text-white dark:hover:bg-ice-blue-600 transition-colors"
-                >
-                  <User className="h-4 w-4 mr-2" />
-                  Meet Developer
-                </Button>
-              </div>
+             <Button
+  variant="outline"
+  size="sm"
+  onClick={() => setIsDeveloperModalOpen(true)}
+  className="
+    mt-4
+    border-background/20
+    text-background/80
+    hover:bg-background/10
+    dark:text-white
+  "
+>
+  <User className="w-4 h-4 mr-2" />
+  Meet Developer
+</Button>
+
             </div>
           </div>
 
-          <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-white/70 text-sm mb-4 md:mb-0">
-              © {new Date().getFullYear()} Invalser. All rights reserved.
+          {/* Bottom Bar */}
+          <div className="border-t border-background/10 dark:border-border mt-10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-background/50 dark:text-muted-foreground text-sm">
+              © {new Date().getFullYear()} INVALSER. All rights reserved.
             </p>
-            <div className="flex space-x-6">
-              <Link to="/terms" className="text-white/70 hover:text-gold transition-colors text-sm">
-                Terms of Service
+            <div className="flex gap-6 text-sm">
+              <Link to="/terms-of-service" className="text-background/50 dark:text-muted-foreground hover:text-primary transition-colors">
+                Terms
               </Link>
-              <Link to="/privacy" className="text-white/70 hover:text-gold transition-colors text-sm">
-                Privacy Policy
+              <Link to="/privacy-policy" className="text-background/50 dark:text-muted-foreground hover:text-primary transition-colors">
+                Privacy
               </Link>
-              <Link to="/cookies" className="text-white/70 hover:text-gold transition-colors text-sm">
-                Cookie Policy
+              <Link to="/cookie-policy" className="text-background/50 dark:text-muted-foreground hover:text-primary transition-colors">
+                Cookies
               </Link>
             </div>
           </div>

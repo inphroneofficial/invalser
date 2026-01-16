@@ -95,11 +95,11 @@ export default function TermsOfService() {
                 If you have questions about these terms or need clarification, please contact our team.
               </p>
               <a
-                href="mailto:invalser@gmail.com"
+                href="mailto:megtk17@gmail.com"
                 className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-sm md:text-base"
               >
                 <FileText className="w-4 h-4 md:w-5 md:h-5" />
-                invalser@gmail.com
+                megtk17@gmail.com
               </a>
             </CardContent>
           </Card>

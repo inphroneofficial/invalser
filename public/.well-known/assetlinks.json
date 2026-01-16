@@ -3,7 +3,7 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "app.invalser",
+      "package_name": "app.findvalet",
       "sha256_cert_fingerprints": [
         "UPDATE_WITH_YOUR_ANDROID_APP_SHA256_FINGERPRINT"
       ]

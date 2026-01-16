@@ -12,20 +12,34 @@ export const getProvidersByLocation = (city?: string, state?: string, area?: str
     };
   }
 
+  // Normalize input
+  const normalizedCity = city?.toLowerCase().trim();
+  const normalizedState = state?.toLowerCase().trim();
+  const normalizedArea = area?.toLowerCase().trim();
+
   // Step 1: Filter by city first (strict city matching)
   let cityFilteredProviders = providers;
-  if (city && city !== "all-cities") {
+  if (normalizedCity && normalizedCity !== "all-cities") {
     cityFilteredProviders = providers.filter(provider => {
-      const [providerCity] = provider.location.split(', ');
-      return providerCity.toLowerCase() === city.toLowerCase();
+      const [providerCity, providerState] = provider.location.split(', ').map(s => s.toLowerCase().trim());
+      
+      // Match city name exactly or as substring
+      const cityMatch = providerCity === normalizedCity || 
+                        providerCity.includes(normalizedCity) || 
+                        normalizedCity.includes(providerCity);
+      
+      // Optionally match state if provided
+      const stateMatch = !normalizedState || 
+                         (providerState && (providerState === normalizedState || 
+                          providerState.includes(normalizedState)));
+      
+      return cityMatch && stateMatch;
     });
     console.log(`City '${city}' filtered providers:`, cityFilteredProviders.length);
   }
 
   // Step 2: If area is specified, try to find area-specific matches within the city
-  if (area && cityFilteredProviders.length > 0) {
-    const normalizedArea = area.toLowerCase().trim();
-    
+  if (normalizedArea && cityFilteredProviders.length > 0) {
     const areaMatches = cityFilteredProviders.filter(provider => {
       if (!provider.areas) return false;
       

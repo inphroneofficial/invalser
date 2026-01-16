@@ -1,99 +1,121 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Search, Calendar, Phone, Check, CarFront, MapPin, Star } from "lucide-react";
+import { Search, Calendar, Phone, Check, Car, MapPin, Star, Shield, Users, ArrowRight } from "lucide-react";
 
 const steps = [
   {
-    icon: <Search className="h-12 w-12 text-gold" />,
-    title: "invalser Services",
-    description: "Search for valet services in your city or location. Filter by rating, price, or specific services."
+    icon: Search,
+    title: "Find Services",
+    description: "Search for valet or security services in your city. Filter by rating, price, or specific requirements."
   },
   {
-    icon: <Calendar className="h-12 w-12 text-gold" />,
+    icon: Calendar,
     title: "Book Online",
-    description: "Select your date, time, and service type. Complete the booking form with your event or personal details."
+    description: "Select your date, time, and service type. Complete the booking form with your event details."
   },
   {
-    icon: <Phone className="h-12 w-12 text-gold" />,
+    icon: Phone,
     title: "Confirm Details",
-    description: "The valet provider will contact you to confirm all details and answer any questions you may have."
+    description: "The provider will contact you to confirm all details and answer any questions you may have."
   },
   {
-    icon: <Check className="h-12 w-12 text-gold" />,
+    icon: Check,
     title: "Enjoy the Service",
-    description: "Professional valets arrive on time and provide seamless service for your event or occasion."
+    description: "Professional staff arrive on time and provide seamless service for your event or occasion."
+  }
+];
+
+const services = [
+  {
+    icon: Car,
+    title: "Event Valet Services",
+    description: "Professional valet parking for weddings, corporate events, galas, and special occasions.",
+    features: ["Wedding receptions", "Corporate functions", "Gala dinners", "Private parties"]
+  },
+  {
+    icon: MapPin,
+    title: "Hotel & Venue Valet",
+    description: "Enhance guest experience with professional valet parking solutions for your property.",
+    features: ["Luxury hotels", "Boutique properties", "Resort destinations", "Commercial venues"]
+  },
+  {
+    icon: Shield,
+    title: "Security Services",
+    description: "Professional bodyguards, bouncers, and event security for comprehensive protection.",
+    features: ["Personal bodyguards", "Event bouncers", "Corporate security", "VIP protection"]
   }
 ];
 
 const HowItWorks = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-navy-dark">
+    <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
       
-      <main className="flex-grow pt-24">
+      <main className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-navy to-navy-dark text-white py-16 lg:py-24">
-          <div className="container mx-auto px-4">
+        <section className="relative bg-gradient-dark text-white py-20 lg:py-28 overflow-hidden">
+          {/* Background effects */}
+          <div className="absolute inset-0 gradient-mesh opacity-40" />
+          <div className="absolute top-20 left-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-blob" />
+          <div className="absolute bottom-10 right-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-blob delay-200" />
+          
+          <div className="container relative z-10">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
-                How <span className="text-gold">ValetPalace</span> Works
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 animate-fade-in">
+                <Users className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-white/90">Simple 4-Step Process</span>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 animate-fade-in-up">
+                How <span className="gradient-text">INVALSER</span> Works
               </h1>
-              <p className="text-lg md:text-xl text-white/90 mb-8">
-                Book professional valet services in just a few simple steps
+              <p className="text-lg md:text-xl text-white/70 mb-8 animate-fade-in-up delay-100">
+                Book professional valet and security services in just a few simple steps
               </p>
-              <Button asChild className="bg-gold hover:bg-gold-dark text-navy-dark">
-                <Link to="/providers">invalser Services</Link>
-              </Button>
+              <Link to="/providers">
+                <Button variant="gradient" size="lg" className="animate-fade-in-up delay-200">
+                  Find Services
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
         
         {/* Process Steps */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="relative">
-                <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200 dark:bg-navy-light/20 hidden md:block"></div>
-                
+        <section className="py-20 bg-background">
+          <div className="container">
+            <div className="max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {steps.map((step, index) => (
                   <div 
                     key={index} 
-                    className="flex flex-col md:flex-row items-center mb-16 last:mb-0 relative"
+                    className="relative group"
                   >
-                    <div className="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1">
-                      {index % 2 === 0 && (
-                        <>
-                          <h3 className="text-2xl font-serif font-bold text-navy-dark dark:text-white mb-3">
-                            {step.title}
-                          </h3>
-                          <p className="text-navy/70 dark:text-white/70">
-                            {step.description}
-                          </p>
-                        </>
-                      )}
-                    </div>
+                    {/* Connector line */}
+                    {index < steps.length - 1 && (
+                      <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-primary/50 to-transparent z-0" />
+                    )}
                     
-                    <div className="w-20 h-20 rounded-full bg-white dark:bg-navy-dark flex items-center justify-center border-4 border-gold/20 z-10 my-6 md:my-0 md:mx-4 shadow-lg">
-                      {step.icon}
-                      <div className="absolute top-full mt-2 md:hidden text-sm font-medium text-navy-dark dark:text-gold">
-                        Step {index + 1}
+                    <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 hover:shadow-glow transition-all duration-300 relative z-10">
+                      {/* Step number */}
+                      <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-sm shadow-lg">
+                        {index + 1}
                       </div>
-                    </div>
-                    
-                    <div className="md:w-1/2 md:pl-12 order-1 md:order-2">
-                      {index % 2 === 1 && (
-                        <>
-                          <h3 className="text-2xl font-serif font-bold text-navy-dark dark:text-white mb-3">
-                            {step.title}
-                          </h3>
-                          <p className="text-navy/70 dark:text-white/70">
-                            {step.description}
-                          </p>
-                        </>
-                      )}
+                      
+                      <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <step.icon className="w-7 h-7 text-primary" />
+                      </div>
+                      
+                      <h3 className="text-lg font-semibold text-card-foreground mb-2">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {step.description}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -103,193 +125,122 @@ const HowItWorks = () => {
         </section>
         
         {/* Service Types */}
-        <section className="py-16 bg-gray-100 dark:bg-navy-light/10">
-          <div className="container mx-auto px-4">
+        <section className="py-20 bg-muted/30">
+          <div className="container">
             <div className="max-w-3xl mx-auto text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-navy-dark dark:text-white mb-4">
-                Types of Valet Services
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+                Our Services
               </h2>
-              <p className="text-navy/70 dark:text-white/70">
-                invalser offers a variety of valet services to meet your specific needs
+              <p className="text-muted-foreground">
+                INVALSER offers a variety of services to meet your specific needs
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white dark:bg-navy-light rounded-xl shadow-md p-6">
-                <div className="bg-gold/10 w-14 h-14 rounded-full flex items-center justify-center mb-4">
-                  <CarFront className="h-7 w-7 text-gold" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {services.map((service, index) => (
+                <div 
+                  key={index}
+                  className="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 hover:shadow-lg transition-all duration-300 group"
+                >
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <service.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  
+                  <h3 className="text-xl font-semibold text-card-foreground mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    {service.description}
+                  </p>
+                  
+                  <ul className="space-y-2">
+                    {service.features.map((feature, fIndex) => (
+                      <li key={fIndex} className="flex items-center text-sm text-muted-foreground">
+                        <Check className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="text-xl font-serif font-bold text-navy-dark dark:text-white mb-2">
-                  Event Valet Services
-                </h3>
-                <p className="text-navy/70 dark:text-white/70 mb-4">
-                  Professional valet parking for weddings, corporate events, galas, and other special occasions. Make a great first impression with smooth arrival and departure experiences for your guests.
-                </p>
-                <ul className="space-y-2 mb-4">
-                  <li className="flex items-center text-navy/70 dark:text-white/70">
-                    <Check className="h-4 w-4 text-gold mr-2" />
-                    <span>Wedding receptions</span>
-                  </li>
-                  <li className="flex items-center text-navy/70 dark:text-white/70">
-                    <Check className="h-4 w-4 text-gold mr-2" />
-                    <span>Corporate functions</span>
-                  </li>
-                  <li className="flex items-center text-navy/70 dark:text-white/70">
-                    <Check className="h-4 w-4 text-gold mr-2" />
-                    <span>Gala dinners</span>
-                  </li>
-                  <li className="flex items-center text-navy/70 dark:text-white/70">
-                    <Check className="h-4 w-4 text-gold mr-2" />
-                    <span>Private parties</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="bg-white dark:bg-navy-light rounded-xl shadow-md p-6">
-                <div className="bg-gold/10 w-14 h-14 rounded-full flex items-center justify-center mb-4">
-                  <MapPin className="h-7 w-7 text-gold" />
-                </div>
-                <h3 className="text-xl font-serif font-bold text-navy-dark dark:text-white mb-2">
-                  Hotel Valet Services
-                </h3>
-                <p className="text-navy/70 dark:text-white/70 mb-4">
-                  Enhance your hotel's guest experience with professional valet parking services. Our providers offer full-time or part-time valet solutions tailored to your property's needs.
-                </p>
-                <ul className="space-y-2 mb-4">
-                  <li className="flex items-center text-navy/70 dark:text-white/70">
-                    <Check className="h-4 w-4 text-gold mr-2" />
-                    <span>Luxury hotels</span>
-                  </li>
-                  <li className="flex items-center text-navy/70 dark:text-white/70">
-                    <Check className="h-4 w-4 text-gold mr-2" />
-                    <span>Boutique properties</span>
-                  </li>
-                  <li className="flex items-center text-navy/70 dark:text-white/70">
-                    <Check className="h-4 w-4 text-gold mr-2" />
-                    <span>Resort destinations</span>
-                  </li>
-                  <li className="flex items-center text-navy/70 dark:text-white/70">
-                    <Check className="h-4 w-4 text-gold mr-2" />
-                    <span>Business hotels</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="bg-white dark:bg-navy-light rounded-xl shadow-md p-6">
-                <div className="bg-gold/10 w-14 h-14 rounded-full flex items-center justify-center mb-4">
-                  <Star className="h-7 w-7 text-gold" />
-                </div>
-                <h3 className="text-xl font-serif font-bold text-navy-dark dark:text-white mb-2">
-                  Personal Valet Services
-                </h3>
-                <p className="text-navy/70 dark:text-white/70 mb-4">
-                  Enjoy the convenience of personal valet services for special occasions, airport transfers, or simply when you need professional drivers to handle your vehicles.
-                </p>
-                <ul className="space-y-2 mb-4">
-                  <li className="flex items-center text-navy/70 dark:text-white/70">
-                    <Check className="h-4 w-4 text-gold mr-2" />
-                    <span>Airport transfers</span>
-                  </li>
-                  <li className="flex items-center text-navy/70 dark:text-white/70">
-                    <Check className="h-4 w-4 text-gold mr-2" />
-                    <span>Special occasions</span>
-                  </li>
-                  <li className="flex items-center text-navy/70 dark:text-white/70">
-                    <Check className="h-4 w-4 text-gold mr-2" />
-                    <span>Business travel</span>
-                  </li>
-                  <li className="flex items-center text-navy/70 dark:text-white/70">
-                    <Check className="h-4 w-4 text-gold mr-2" />
-                    <span>Residential services</span>
-                  </li>
-                </ul>
-              </div>
+              ))}
             </div>
           </div>
         </section>
         
         {/* FAQ Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
+        <section className="py-20 bg-background">
+          <div className="container">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-navy-dark dark:text-white mb-8 text-center">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-8 text-center">
                 Frequently Asked Questions
               </h2>
               
-              <div className="space-y-6">
-                <div className="bg-white dark:bg-navy-light rounded-xl shadow-md p-6">
-                  <h3 className="text-xl font-serif font-bold text-navy-dark dark:text-white mb-2">
-                    How far in advance should I book valet services?
-                  </h3>
-                  <p className="text-navy/70 dark:text-white/70">
-                    For events, we recommend booking at least 2-4 weeks in advance to ensure availability. For hotel services, contracts can be established with a month's notice. Personal services may be available on shorter notice but booking ahead is always recommended.
-                  </p>
-                </div>
-                
-                <div className="bg-white dark:bg-navy-light rounded-xl shadow-md p-6">
-                  <h3 className="text-xl font-serif font-bold text-navy-dark dark:text-white mb-2">
-                    How many valets will I need for my event?
-                  </h3>
-                  <p className="text-navy/70 dark:text-white/70">
-                    The number of valets needed depends on several factors including expected guest count, event duration, and venue layout. As a general guideline, we recommend 1 valet per 50 guests. Your valet provider will help you determine the appropriate staffing.
-                  </p>
-                </div>
-                
-                <div className="bg-white dark:bg-navy-light rounded-xl shadow-md p-6">
-                  <h3 className="text-xl font-serif font-bold text-navy-dark dark:text-white mb-2">
-                    What happens if it rains during my outdoor event?
-                  </h3>
-                  <p className="text-navy/70 dark:text-white/70">
-                    Professional valet services come prepared for all weather conditions. They typically bring umbrellas, canopies, and other equipment to ensure guests stay dry. Weather contingency plans are discussed during the booking process.
-                  </p>
-                </div>
-                
-                <div className="bg-white dark:bg-navy-light rounded-xl shadow-md p-6">
-                  <h3 className="text-xl font-serif font-bold text-navy-dark dark:text-white mb-2">
-                    Are the valet providers insured?
-                  </h3>
-                  <p className="text-navy/70 dark:text-white/70">
-                    Yes, all valet providers on our platform are required to have proper insurance coverage. This includes general liability and garage keeper's legal liability insurance. You can request proof of insurance during the booking process.
-                  </p>
-                </div>
-                
-                <div className="bg-white dark:bg-navy-light rounded-xl shadow-md p-6">
-                  <h3 className="text-xl font-serif font-bold text-navy-dark dark:text-white mb-2">
-                    What is the cancellation policy?
-                  </h3>
-                  <p className="text-navy/70 dark:text-white/70">
-                    Cancellation policies vary by provider. Generally, cancellations made more than 7 days before the service date are eligible for a full refund. Cancellations within 7 days may be subject to a partial charge. Your specific cancellation terms will be provided during booking.
-                  </p>
-                </div>
+              <div className="space-y-4">
+                {[
+                  {
+                    q: "How far in advance should I book services?",
+                    a: "For events, we recommend booking at least 2-4 weeks in advance to ensure availability. For hotel services, contracts can be established with a month's notice."
+                  },
+                  {
+                    q: "How many staff will I need for my event?",
+                    a: "The number of staff depends on expected guest count, event duration, and venue layout. As a guideline, we recommend 1 valet per 50 guests. Your provider will help determine appropriate staffing."
+                  },
+                  {
+                    q: "Are the service providers verified?",
+                    a: "Yes, all providers on INVALSER are verified with proper documentation, background checks, and insurance coverage. You can request proof during the booking process."
+                  },
+                  {
+                    q: "What is the cancellation policy?",
+                    a: "Cancellation policies vary by provider. Generally, cancellations more than 7 days before are eligible for full refund. Your specific terms will be provided during booking."
+                  }
+                ].map((faq, index) => (
+                  <div key={index} className="bg-card border border-border rounded-xl p-5 hover:border-primary/30 transition-colors">
+                    <h3 className="text-lg font-semibold text-card-foreground mb-2">
+                      {faq.q}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {faq.a}
+                    </p>
+                  </div>
+                ))}
               </div>
               
               <div className="mt-10 text-center">
-                <p className="text-navy/70 dark:text-white/70 mb-6">
-                  Have more questions about how ValetPalace works?
+                <p className="text-muted-foreground mb-4">
+                  Have more questions?
                 </p>
-                <Button asChild className="bg-navy dark:bg-navy-light text-white">
-                  <Link to="/contact">Contact Our Support Team</Link>
-                </Button>
+                <Link to="/contact">
+                  <Button variant="outline">
+                    Contact Support
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
         </section>
         
-        {/* Call to Action */}
-        <section className="bg-navy dark:bg-navy-dark py-16 text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
-              Ready to Experience Premium Valet Services?
+        {/* CTA Section */}
+        <section className="py-16 bg-gradient-dark text-white relative overflow-hidden">
+          <div className="absolute inset-0 gradient-mesh opacity-30" />
+          
+          <div className="container relative z-10 text-center">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+              Ready to Get Started?
             </h2>
-            <p className="text-white/80 max-w-2xl mx-auto mb-8">
-              Browse our selection of verified valet service providers and book the perfect option for your needs.
+            <p className="text-white/70 max-w-xl mx-auto mb-8">
+              Browse our selection of verified service providers and book the perfect option for your needs.
             </p>
-            <Button asChild className="bg-gold hover:bg-gold-dark text-navy-dark font-medium">
-              <Link to="/providers">invalser Services Now</Link>
-            </Button>
+            <Link to="/providers">
+              <Button variant="gradient" size="lg">
+                Find Services Now
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
           </div>
         </section>
       </main>
+      
+      <Footer />
     </div>
   );
 };

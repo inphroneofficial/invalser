@@ -1,31 +1,72 @@
-
 import React, { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ValetRegistrationForm from "@/components/ValetRegistrationForm";
+import { Sparkles, CheckCircle, Users, Star, Shield } from "lucide-react";
 
 const Registration = () => {
-  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const benefits = [
+    { icon: Users, text: "Access to 50K+ customers" },
+    { icon: Star, text: "Build your reputation" },
+    { icon: Shield, text: "Verified badge" },
+    { icon: CheckCircle, text: "24/7 support" },
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-ice-blue-50/30 to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <div className="min-h-screen bg-background">
       <Navbar />
-      <div className="pt-16 md:pt-20 pb-8 md:pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-6 md:mb-8">
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-ice-blue-700 via-blue-600 to-ice-blue-600 dark:from-ice-blue-400 dark:via-blue-400 dark:to-ice-blue-400 bg-clip-text text-transparent mb-2 md:mb-4">
-              Register Your Valet Service
+      
+      {/* Hero Section */}
+      <section className="relative pt-8 pb-12 overflow-hidden">
+        <div className="absolute inset-0 gradient-hero" />
+        <div className="absolute inset-0 gradient-mesh opacity-50" />
+        
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-blob" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-blob" style={{ animationDelay: '2s' }} />
+        
+        <div className="container relative z-10">
+          <div className="text-center max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 animate-fade-in">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary">Join Our Network</span>
+            </div>
+            
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 animate-fade-in-up">
+              <span className="text-foreground">Become a </span>
+              <span className="gradient-text">Service Provider</span>
             </h1>
-            <p className="text-base md:text-xl text-gray-700 dark:text-gray-200 max-w-2xl mx-auto px-4">
-              Join our platform and connect with customers looking for premium valet services
+            
+            <p className="text-lg text-muted-foreground mb-8 animate-fade-in-up stagger-2">
+              Join INVALSER and connect with thousands of customers looking for premium valet and security services.
             </p>
+
+            {/* Benefits */}
+            <div className="flex flex-wrap justify-center gap-3 animate-fade-in-up stagger-3">
+              {benefits.map((benefit, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur border border-border/50 text-sm"
+                >
+                  <benefit.icon className="w-4 h-4 text-primary" />
+                  <span className="text-foreground">{benefit.text}</span>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* Registration Form */}
+      <section className="py-12 px-4 bg-muted/30">
+        <div className="container max-w-4xl">
           <ValetRegistrationForm />
         </div>
-      </div>
+      </section>
+      
       <Footer />
     </div>
   );

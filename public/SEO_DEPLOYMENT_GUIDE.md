@@ -1,4 +1,4 @@
-# 🚀 invalser SEO & Deployment Guide
+# 🚀 FindValet SEO & Deployment Guide
 
 ## ✅ What's Been Implemented
 
@@ -131,7 +131,7 @@ Deploy the `dist/` folder to your hosting:
 ## 📊 Post-Deployment Verification
 
 ### Google Search Console
-1. Submit sitemap: `https://invalser.app/sitemap.xml`
+1. Submit sitemap: `https://findvalet.app/sitemap.xml`
 2. Request indexing for main pages
 3. Monitor Core Web Vitals
 
@@ -280,7 +280,7 @@ After 2-4 weeks, you should see:
 
 ## 🎊 Congratulations!
 
-Your invalser app is now fully optimized for:
+Your FindValet app is now fully optimized for:
 - 🔍 Search Engine Discovery
 - 📱 Progressive Web App
 - ⚡ Performance & Speed

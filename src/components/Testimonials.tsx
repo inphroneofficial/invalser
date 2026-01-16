@@ -1,4 +1,5 @@
-import { Star } from "lucide-react";
+import React from "react";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -26,45 +27,62 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="success-stories" className="py-20 bg-navy/5 dark:bg-navy-light/10">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-navy-dark dark:text-white mb-4">
-            What Our <span className="text-gold">Customers</span> Say
+    <section className="py-16 sm:py-24 section-light">
+      <div className="container">
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-warning/10 text-warning text-sm font-medium mb-4">
+            <Star className="w-4 h-4 fill-warning" />
+            Customer Reviews
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
+            What Our{" "}
+            <span className="gradient-text">Customers</span>
+            {" "}Say
           </h2>
-          <p className="text-lg text-navy/70 dark:text-white/70 max-w-2xl mx-auto">
-            Hear from people who have experienced our premium valet services
+          <p className="text-lg text-muted-foreground">
+            Hear from people who have experienced our premium services
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <div 
               key={index} 
-              className="glass-card rounded-xl p-6 card-hover"
+              className="card-modern p-6 sm:p-8 relative"
             >
-              <div className="flex mb-4">
+              {/* Quote Icon */}
+              <Quote className="absolute top-6 right-6 w-8 h-8 text-primary/10" />
+              
+              {/* Stars */}
+              <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star 
                     key={i} 
-                    className={`h-5 w-5 ${i < testimonial.rating ? 'fill-gold stroke-gold' : 'text-gray-300'}`} 
+                    className={`w-4 h-4 ${i < testimonial.rating ? 'fill-warning text-warning' : 'text-muted'}`} 
                   />
                 ))}
               </div>
-              <p className="text-navy/80 dark:text-white/80 mb-6 italic">
+              
+              {/* Quote */}
+              <p className="text-foreground/80 mb-6 leading-relaxed">
                 "{testimonial.text}"
               </p>
-              <div className="flex items-center">
+              
+              {/* Author */}
+              <div className="flex items-center gap-3">
                 <img 
                   src={testimonial.image} 
                   alt={testimonial.name} 
-                  className="w-12 h-12 rounded-full mr-4 object-cover"
+                  className="w-12 h-12 rounded-full object-cover ring-2 ring-primary/20"
+                  loading="lazy"
                 />
                 <div>
-                  <h4 className="font-semibold text-navy-dark dark:text-white">
+                  <h4 className="font-semibold text-foreground">
                     {testimonial.name}
                   </h4>
-                  <p className="text-sm text-navy/70 dark:text-white/70">
+                  <p className="text-sm text-muted-foreground">
                     {testimonial.location}
                   </p>
                 </div>

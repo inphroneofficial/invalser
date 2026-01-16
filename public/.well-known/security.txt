@@ -1,4 +1,4 @@
-Contact: mailto:invalser@gmail.com
+Contact: mailto:megtk17@gmail.com
 Expires: 2026-12-31T23:59:59.000Z
 Preferred-Languages: en
 Canonical: https://invalser.com/.well-known/security.txt
@@ -9,7 +9,7 @@ If you discover a security vulnerability in INVALSER, please report it responsib
 
 ## Reporting
 
-Please email invalser@gmail.com with:
+Please email megtk17@gmail.com with:
 - Description of the vulnerability
 - Steps to reproduce
 - Potential impact

@@ -22,7 +22,7 @@ export default function Feedback() {
       `Name: ${name}\nEmail: ${email}\nRating: ${rating}/5\n\nFeedback:\n${feedback}`
     );
     
-    window.location.href = `mailto:invalser@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:megtk17@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (

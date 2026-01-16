@@ -14,7 +14,7 @@ export const sendBookingConfirmation = (bookingData: BookingData): boolean => {
     
     // The service provider's WhatsApp number for direct contact
     const serviceProviderWhatsApp = "9550464957";
-    const recipientEmail = bookingData.email || bookingData.recipientEmail || "invalser@gmail.com";
+    const recipientEmail = bookingData.email || bookingData.recipientEmail || "megtk21@gmail.com";
     
     // For demo purposes, here we would be making an API call to send the email
     // Since this is a mock implementation, we'll log what would happen

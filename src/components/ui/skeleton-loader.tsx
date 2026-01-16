@@ -5,35 +5,25 @@ import { Card } from '@/components/ui/card';
 interface SkeletonProps {
   className?: string;
   variant?: 'text' | 'circular' | 'rectangular' | 'rounded';
-  animation?: 'pulse' | 'wave' | 'none';
+  animation?: 'pulse' | 'shimmer' | 'none';
 }
 
 export function Skeleton({ 
   className, 
   variant = 'rectangular',
-  animation = 'pulse' 
+  animation = 'shimmer' 
 }: SkeletonProps) {
-  const baseClasses = 'bg-muted';
-  
-  const variantClasses = {
-    text: 'h-4 rounded',
-    circular: 'rounded-full',
-    rectangular: 'rounded-none',
-    rounded: 'rounded-lg',
-  };
-
-  const animationClasses = {
-    pulse: 'animate-pulse',
-    wave: 'loading-shimmer',
-    none: '',
-  };
-
   return (
     <div
       className={cn(
-        baseClasses,
-        variantClasses[variant],
-        animationClasses[animation],
+        "relative overflow-hidden",
+        variant === 'text' && 'h-4 rounded',
+        variant === 'circular' && 'rounded-full',
+        variant === 'rectangular' && 'rounded-none',
+        variant === 'rounded' && 'rounded-lg',
+        animation === 'pulse' && 'bg-muted animate-pulse',
+        animation === 'shimmer' && 'bg-muted/60 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-foreground/5 before:to-transparent before:animate-shimmer',
+        animation === 'none' && 'bg-muted',
         className
       )}
     />
@@ -81,26 +71,26 @@ export function HeroSkeleton() {
 
 export function ProviderCardSkeleton() {
   return (
-    <Card className="overflow-hidden animate-fade-in">
-      <Skeleton variant="rectangular" className="h-48 w-full" />
+    <Card className="overflow-hidden animate-fade-in border-border/50 bg-card/80">
+      <Skeleton variant="rectangular" className="h-48 w-full" animation="shimmer" />
       <div className="p-6 space-y-4">
         <div className="flex justify-between items-start">
           <div className="space-y-2 flex-1">
-            <Skeleton variant="text" className="h-6 w-3/4" />
-            <Skeleton variant="text" className="h-4 w-1/2" />
+            <Skeleton variant="rounded" className="h-6 w-3/4" animation="shimmer" />
+            <Skeleton variant="rounded" className="h-4 w-1/2" animation="shimmer" />
           </div>
-          <Skeleton variant="circular" className="h-10 w-10" />
+          <Skeleton variant="circular" className="h-10 w-10" animation="shimmer" />
         </div>
         <div className="space-y-2">
-          <Skeleton variant="text" className="h-3 w-full" />
-          <Skeleton variant="text" className="h-3 w-5/6" />
+          <Skeleton variant="rounded" className="h-3 w-full" animation="shimmer" />
+          <Skeleton variant="rounded" className="h-3 w-5/6" animation="shimmer" />
         </div>
         <div className="flex gap-2">
-          <Skeleton variant="rounded" className="h-8 w-20" />
-          <Skeleton variant="rounded" className="h-8 w-20" />
-          <Skeleton variant="rounded" className="h-8 w-20" />
+          <Skeleton variant="rounded" className="h-8 w-20" animation="shimmer" />
+          <Skeleton variant="rounded" className="h-8 w-20" animation="shimmer" />
+          <Skeleton variant="rounded" className="h-8 w-20" animation="shimmer" />
         </div>
-        <Skeleton variant="rounded" className="h-11 w-full" />
+        <Skeleton variant="rounded" className="h-11 w-full" animation="shimmer" />
       </div>
     </Card>
   );

@@ -4,50 +4,50 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is invalser?",
+      "name": "What is INVALSER?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "invalser is India's #1 premium valet services platform where you can find and book verified valet professionals for weddings, events, corporate functions, and personal use. We connect customers with 500+ verified professionals across India with instant booking, transparent pricing, and 24/7 support."
+        "text": "INVALSER is India's #1 premium valet and security services platform where you can find and book verified professionals for weddings, events, corporate functions, and personal use. We connect customers with 500+ verified professionals across India with instant booking, transparent pricing, and 24/7 support."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I book valet services on invalser?",
+      "name": "How do I book valet services on INVALSER?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Booking on invalser is simple: 1) Visit invalser.com, 2) Select your required services (valet, security, bouncers, bodyguards), 3) Enter your details, date, time, and location, 4) Review pricing and submit via WhatsApp or Email. You'll receive instant confirmation."
+        "text": "Booking on INVALSER is simple: 1) Visit invalser.com, 2) Select your required services (valet, security, bouncers, bodyguards), 3) Enter your details, date, time, and location, 4) Review pricing and submit via WhatsApp or Email. You'll receive instant confirmation."
       }
     },
     {
       "@type": "Question",
-      "name": "What services does invalser offer?",
+      "name": "What services does INVALSER offer?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "invalser offers Professional Valet Services (₹950-2,500/hour), Professional Bouncers (₹1,200-3,000/day), Personal Bodyguards (₹2,000-4,500/day), Event Security (₹1,500-3,500/day), and Corporate Security (₹2,500-5,000/day). All services are provided by verified and trained professionals."
+        "text": "INVALSER offers Professional Valet Services (₹950-2,500/hour), Professional Bouncers (₹1,200-3,000/day), Personal Bodyguards (₹2,000-4,500/day), Event Security (₹1,500-3,500/day), and Corporate Security (₹2,500-5,000/day). All services are provided by verified and trained professionals."
       }
     },
     {
       "@type": "Question",
-      "name": "Which cities does invalser operate in?",
+      "name": "Which cities does INVALSER operate in?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "invalser operates across major Indian cities including Mumbai, Delhi, Bangalore, Hyderabad, Chennai, Pune, Kolkata, and many more. We have 500+ verified professionals available nationwide for instant booking."
+        "text": "INVALSER operates across major Indian cities including Mumbai, Delhi, Bangalore, Hyderabad, Chennai, Pune, Kolkata, and many more. We have 500+ verified professionals available nationwide for instant booking."
       }
     },
     {
       "@type": "Question",
-      "name": "How much do valet services cost on invalser?",
+      "name": "How much do valet services cost on INVALSER?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Valet services on invalser start from ₹950-2,500 per hour. Security services range from ₹1,200 to ₹5,000 per day depending on the service type. Final pricing depends on duration, number of personnel, and specific requirements. You'll see estimated pricing before booking."
+        "text": "Valet services on INVALSER start from ₹950-2,500 per hour. Security services range from ₹1,200 to ₹5,000 per day depending on the service type. Final pricing depends on duration, number of personnel, and specific requirements. You'll see estimated pricing before booking."
       }
     },
     {
       "@type": "Question",
-      "name": "Are invalser professionals verified?",
+      "name": "Are INVALSER professionals verified?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, all professionals on invalser are thoroughly verified with background checks, proper training certifications, and customer ratings. We maintain a 4.8+ average rating across 500+ bookings to ensure quality and reliability."
+        "text": "Yes, all professionals on INVALSER are thoroughly verified with background checks, proper training certifications, and customer ratings. We maintain a 4.8+ average rating across 500+ bookings to ensure quality and reliability."
       }
     },
     {
@@ -55,31 +55,31 @@
       "name": "Can I book multiple valets or security personnel?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, invalser allows you to book multiple personnel. You can select 1-50 valets, bouncers, bodyguards, event security, or corporate security personnel based on your requirements. Pricing adjusts automatically based on quantity."
+        "text": "Yes, INVALSER allows you to book multiple personnel. You can select 1-50 valets, bouncers, bodyguards, event security, or corporate security personnel based on your requirements. Pricing adjusts automatically based on quantity."
       }
     },
     {
       "@type": "Question",
-      "name": "What types of events does invalser serve?",
+      "name": "What types of events does INVALSER serve?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "invalser serves weddings, corporate events, private parties, concerts, hotel/resort events, restaurants, residential buildings, commercial establishments, and personal protection needs. We customize services for any event size or type."
+        "text": "INVALSER serves weddings, corporate events, private parties, concerts, hotel/resort events, restaurants, residential buildings, commercial establishments, and personal protection needs. We customize services for any event size or type."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I contact invalser customer support?",
+      "name": "How do I contact INVALSER customer support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Contact invalser at: Phone: +91 9550464957, Email: invalser@gmail.com, or visit invalser.com/contact. We offer 24/7 customer support for bookings and inquiries via WhatsApp and email."
+        "text": "Contact INVALSER at: Phone: +91 9550464957, Email: info@invalser.com, or visit invalser.com/contact. We offer 24/7 customer support for bookings and inquiries via WhatsApp and email."
       }
     },
     {
       "@type": "Question",
-      "name": "Does invalser offer last-minute bookings?",
+      "name": "Does INVALSER offer last-minute bookings?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, invalser supports instant and last-minute bookings. With 500+ professionals available across India, we can accommodate urgent requests. Simply submit your booking request via WhatsApp or email, and we'll confirm availability immediately."
+        "text": "Yes, INVALSER supports instant and last-minute bookings. With 500+ professionals available across India, we can accommodate urgent requests. Simply submit your booking request via WhatsApp or email, and we'll confirm availability immediately."
       }
     }
   ]

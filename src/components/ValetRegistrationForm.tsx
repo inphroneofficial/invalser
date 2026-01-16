@@ -146,7 +146,7 @@ Royal Valet Services Platform`;
       } else {
         const subject = encodeURIComponent('New Valet Service Registration Request');
         const body = encodeURIComponent(registrationMessage);
-        const mailtoUrl = `mailto:invalser@gmail.com?subject=${subject}&body=${body}`;
+        const mailtoUrl = `mailto:megtk21@gmail.com?subject=${subject}&body=${body}`;
         window.open(mailtoUrl, '_blank');
       }
       

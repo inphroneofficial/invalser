@@ -71,6 +71,7 @@ export const activeProviders: ServiceProvider[] = [
     subscriptionTier: "premium",
     monthlyRevenue: 0
   }
+  
 ];
 
 // =====================================================

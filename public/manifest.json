@@ -13,10 +13,10 @@
   "categories": ["business", "lifestyle", "productivity"],
   "icons": [
     {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "src": "/favicon.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/icon-192.png",
@@ -41,6 +41,12 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
   "screenshots": [
@@ -59,16 +65,16 @@
   ],
   "shortcuts": [
     {
-      "name": "invalser Services",
+      "name": "Find Services",
       "short_name": "Find",
-      "description": "Search for valet services near you",
+      "description": "Search for valet and security services near you",
       "url": "/providers",
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     },
     {
       "name": "How It Works",
       "short_name": "Guide",
-      "description": "Learn how invalser works",
+      "description": "Learn how INVALSER works",
       "url": "/how-it-works",
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     }

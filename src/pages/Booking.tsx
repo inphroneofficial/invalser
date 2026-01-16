@@ -1,10 +1,9 @@
-
 import React from "react";
 import { useSearchParams, useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ImprovedBookingForm from "@/components/booking/ImprovedBookingForm";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
   Car, 
@@ -13,7 +12,10 @@ import {
   CheckCircle,
   Phone,
   Mail,
-  Clock
+  Clock,
+  Sparkles,
+  Star,
+  ArrowRight
 } from "lucide-react";
 import { getProviderById } from "@/services/providerService";
 
@@ -24,142 +26,187 @@ const Booking = () => {
   const serviceType = searchParams.get('type') || 'personal';
   const provider = id ? getProviderById(id) : null;
 
+  const features = [
+    { icon: CheckCircle, text: "Verified Professionals" },
+    { icon: Clock, text: "24/7 Support" },
+    { icon: Shield, text: "Secure Booking" },
+    { icon: Star, text: "Quality Assured" },
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <div className="min-h-screen bg-background">
       <Navbar />
       
-      <div className="pt-20 pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          {/* Header Section */}
-          <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-600 dark:from-blue-400 dark:via-indigo-400 dark:to-blue-400 bg-clip-text text-transparent mb-4">
-              Book Professional Services
-            </h1>
-            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 max-w-3xl mx-auto mb-8">
-              Complete your booking in just a few simple steps
-            </p>
+      {/* Hero Section */}
+      <section className="relative pt-8 pb-16 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 gradient-hero" />
+        <div className="absolute inset-0 gradient-mesh opacity-50" />
+        
+        {/* Animated blobs */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-blob" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-blob" style={{ animationDelay: '2s' }} />
+        
+        <div className="container relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 animate-fade-in">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary">Book in Minutes</span>
+            </div>
             
-            {/* Service Categories Overview */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              <Card className="border-2 border-blue-100 hover:border-blue-300 transition-colors">
-                <CardContent className="p-6 text-center">
-                  <Car className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Valet Services</h3>
-                  <p className="text-gray-600 text-sm">Professional vehicle handling and parking solutions</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="border-2 border-red-100 hover:border-red-300 transition-colors">
-                <CardContent className="p-6 text-center">
-                  <Shield className="w-12 h-12 text-red-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Security Services</h3>
-                  <p className="text-gray-600 text-sm">Comprehensive protection and safety solutions</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="border-2 border-green-100 hover:border-green-300 transition-colors">
-                <CardContent className="p-6 text-center">
-                  <Users className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Combined Services</h3>
-                  <p className="text-gray-600 text-sm">Mix and match services for complete coverage</p>
-                </CardContent>
-              </Card>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 animate-fade-in-up">
+              <span className="text-foreground">Book </span>
+              <span className="gradient-text">Professional Services</span>
+            </h1>
+            
+            <p className="text-lg text-muted-foreground mb-8 animate-fade-in-up stagger-2">
+              Complete your booking in just a few simple steps. Our verified professionals are ready to serve.
+            </p>
+
+            {/* Feature Pills */}
+            <div className="flex flex-wrap justify-center gap-3 animate-fade-in-up stagger-3">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur border border-border/50 text-sm"
+                >
+                  <feature.icon className="w-4 h-4 text-primary" />
+                  <span className="text-foreground">{feature.text}</span>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Available Services List */}
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <CheckCircle className="w-6 h-6 text-green-600" />
-                Available Services Nationwide
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <h4 className="font-semibold text-blue-600 mb-3 flex items-center gap-2">
-                    <Car className="w-5 h-5" />
-                    Valet Services
-                  </h4>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-center gap-2">
-                      <Badge variant="outline" className="w-2 h-2 p-0 rounded-full bg-blue-500" />
-                      Professional Valet Services
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Badge variant="outline" className="w-2 h-2 p-0 rounded-full bg-blue-500" />
-                      Event Valet Management
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Badge variant="outline" className="w-2 h-2 p-0 rounded-full bg-blue-500" />
-                      Corporate Valet Solutions
-                    </li>
+          {/* Service Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-12">
+            {[
+              {
+                icon: Car,
+                title: "Valet Services",
+                desc: "Professional parking solutions",
+                color: "primary",
+                services: ["Event Valet", "Hotel Valet", "Corporate Valet"]
+              },
+              {
+                icon: Shield,
+                title: "Security Services",
+                desc: "Comprehensive protection",
+                color: "destructive",
+                services: ["Bodyguards", "Bouncers", "Event Security"]
+              },
+              {
+                icon: Users,
+                title: "Combined Package",
+                desc: "Complete coverage",
+                color: "accent",
+                services: ["Mix & Match", "Custom Solutions", "Best Value"]
+              }
+            ].map((service, index) => (
+              <Card 
+                key={index}
+                className="group card-interactive border-2 border-transparent hover:border-primary/30 bg-card/80 backdrop-blur overflow-hidden animate-slide-up"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <CardContent className="p-6">
+                  <div className={`w-12 h-12 rounded-xl bg-${service.color}/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <service.icon className={`w-6 h-6 text-${service.color}`} />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-1 text-foreground">{service.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-3">{service.desc}</p>
+                  <ul className="space-y-1">
+                    {service.services.map((s, i) => (
+                      <li key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <CheckCircle className="w-3 h-3 text-primary" />
+                        {s}
+                      </li>
+                    ))}
                   </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Form Section */}
+      <section className="py-12 px-4 bg-muted/30">
+        <div className="container">
+          <ImprovedBookingForm />
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-16 px-4 bg-background">
+        <div className="container max-w-4xl">
+          <Card className="overflow-hidden border-0 shadow-xl">
+            <div className="grid md:grid-cols-2">
+              {/* Left - Info */}
+              <div className="p-8 bg-gradient-to-br from-primary to-accent text-primary-foreground">
+                <h3 className="text-2xl font-bold mb-4">Need Help?</h3>
+                <p className="text-primary-foreground/80 mb-8">
+                  Our support team is available 24/7 to assist you with your booking.
+                </p>
+                
+                <div className="space-y-4">
+                  <a href="tel:9550464957" className="flex items-center gap-4 p-4 rounded-xl bg-white/10 hover:bg-white/20 transition-colors group">
+                    <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-primary-foreground/70">Call Us</p>
+                      <p className="font-semibold">+91 9550464957</p>
+                    </div>
+                    <ArrowRight className="w-5 h-5 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                  
+                  <a href="mailto:support@invalser.com" className="flex items-center gap-4 p-4 rounded-xl bg-white/10 hover:bg-white/20 transition-colors group">
+                    <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center">
+                      <Mail className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-primary-foreground/70">Email Us</p>
+                      <p className="font-semibold">support@invalser.com</p>
+                    </div>
+                    <ArrowRight className="w-5 h-5 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                </div>
+              </div>
+              
+              {/* Right - Hours */}
+              <div className="p-8 bg-card">
+                <h4 className="font-semibold text-lg mb-6 text-foreground">Support Hours</h4>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between py-3 border-b border-border">
+                    <span className="text-muted-foreground">Monday - Friday</span>
+                    <Badge variant="secondary">24 Hours</Badge>
+                  </div>
+                  <div className="flex items-center justify-between py-3 border-b border-border">
+                    <span className="text-muted-foreground">Saturday</span>
+                    <Badge variant="secondary">24 Hours</Badge>
+                  </div>
+                  <div className="flex items-center justify-between py-3 border-b border-border">
+                    <span className="text-muted-foreground">Sunday</span>
+                    <Badge variant="secondary">24 Hours</Badge>
+                  </div>
+                  <div className="flex items-center justify-between py-3">
+                    <span className="text-muted-foreground">Holidays</span>
+                    <Badge variant="secondary">24 Hours</Badge>
+                  </div>
                 </div>
                 
-                <div>
-                  <h4 className="font-semibold text-red-600 mb-3 flex items-center gap-2">
-                    <Shield className="w-5 h-5" />
-                    Security Services
-                  </h4>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-center gap-2">
-                      <Badge variant="outline" className="w-2 h-2 p-0 rounded-full bg-red-500" />
-                      Professional Bouncers
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Badge variant="outline" className="w-2 h-2 p-0 rounded-full bg-red-500" />
-                      Personal Bodyguards
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Badge variant="outline" className="w-2 h-2 p-0 rounded-full bg-red-500" />
-                      Event Security
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Badge variant="outline" className="w-2 h-2 p-0 rounded-full bg-red-500" />
-                      Corporate Security
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Badge variant="outline" className="w-2 h-2 p-0 rounded-full bg-red-500" />
-                      Specialized Protection
-                    </li>
-                  </ul>
+                <div className="mt-6 p-4 rounded-xl bg-primary/5 border border-primary/10">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
+                    <span className="text-sm font-medium text-foreground">Support is Online</span>
+                  </div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
-
-          {/* Booking Form */}
-          <ImprovedBookingForm />
-
-          {/* Contact Information */}
-          <Card className="mt-12">
-            <CardHeader>
-              <CardTitle className="text-center">Need Help with Your Booking?</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <div className="flex flex-col items-center">
-                  <Phone className="w-8 h-8 text-blue-600 mb-2" />
-                  <h4 className="font-semibold mb-1">Call Us</h4>
-                  <p className="text-gray-600">+91 9550464957</p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <Mail className="w-8 h-8 text-blue-600 mb-2" />
-                  <h4 className="font-semibold mb-1">Email Us</h4>
-                  <p className="text-gray-600">support@serviceproviders.com</p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <Clock className="w-8 h-8 text-blue-600 mb-2" />
-                  <h4 className="font-semibold mb-1">Support Hours</h4>
-                  <p className="text-gray-600">24/7 Available</p>
-                </div>
-              </div>
-            </CardContent>
+            </div>
           </Card>
         </div>
-      </div>
+      </section>
       
       <Footer />
     </div>

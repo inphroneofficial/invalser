@@ -16,65 +16,70 @@ const ValetCountSelector: React.FC<ValetCountSelectorProps> = ({
   maxCount = 10
 }) => {
   const increment = () => {
-    if (count < maxCount) onCountChange(count + 1);
+    if (count < maxCount) {
+      onCountChange(count + 1);
+    }
   };
 
   const decrement = () => {
-    if (count > 1) onCountChange(count - 1);
+    if (count > 1) {
+      onCountChange(count - 1);
+    }
   };
 
   return (
     <Motion variant="slideUp" delay={200}>
-      <PremiumCard variant="glass" className="p-6">
-        <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="p-3 rounded-xl bg-gradient-to-br from-gold/10 to-gold/5 dark:from-blue-500/10 dark:to-blue-500/5">
-              <Users className="h-6 w-6 text-gold dark:text-blue-400" />
+      <PremiumCard variant="glass" className="p-3 sm:p-6">
+        <div className="flex flex-col gap-3 sm:gap-4">
+          {/* Title Section */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="p-2 sm:p-3 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex-shrink-0">
+              <Users className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
             </div>
-            <div>
-              <h3 className="font-semibold text-lg text-navy-dark dark:text-white">
+            <div className="min-w-0">
+              <h3 className="font-semibold text-sm sm:text-lg text-foreground">
                 Number of Valets
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 Select how many valet professionals you need
               </p>
             </div>
           </div>
-
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
+          
+          {/* Counter Controls - Always below title */}
+          <div className="flex items-center justify-center gap-4 sm:gap-6 py-2">
             <PremiumButton
               variant="outline"
               size="sm"
               onClick={decrement}
               disabled={count <= 1}
-              className="w-full sm:w-10 h-10 p-0 rounded-full"
+              className="w-10 h-10 sm:w-12 sm:h-12 p-0 rounded-full flex-shrink-0 text-lg font-bold"
             >
-              <Minus className="h-4 w-4" />
+              <Minus className="h-5 w-5" />
             </PremiumButton>
-
-            <div className="bg-gradient-to-r from-gold/20 to-gold/10 dark:from-blue-500/20 dark:to-blue-500/10 rounded-xl px-6 py-3 min-w-[60px] text-center">
-              <span className="text-2xl font-bold text-navy-dark dark:text-white">
+            
+            <div className="bg-gradient-to-r from-primary/20 to-primary/10 rounded-xl px-6 sm:px-8 py-3 sm:py-4 min-w-[70px] sm:min-w-[80px] text-center">
+              <span className="text-2xl sm:text-3xl font-bold text-foreground">
                 {count}
               </span>
             </div>
-
+            
             <PremiumButton
               variant="outline"
               size="sm"
               onClick={increment}
               disabled={count >= maxCount}
-              className="w-full sm:w-10 h-10 p-0 rounded-full"
+              className="w-10 h-10 sm:w-12 sm:h-12 p-0 rounded-full flex-shrink-0 text-lg font-bold"
             >
-              <Plus className="h-4 w-4" />
+              <Plus className="h-5 w-5" />
             </PremiumButton>
           </div>
         </div>
-
+        
         {count > 1 && (
-          <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-            <p className="text-sm text-blue-700 dark:text-blue-300">
-              <strong>Multiple Valets:</strong> Perfect for larger events or extended service hours. 
-              Each additional valet ensures better coverage and service quality.
+          <div className="mt-3 sm:mt-4 p-2 sm:p-3 bg-info/10 rounded-lg border border-info/20">
+            <p className="text-xs sm:text-sm text-info">
+              <strong>Multiple Valets:</strong> Perfect for larger events or extended service hours.
             </p>
           </div>
         )}

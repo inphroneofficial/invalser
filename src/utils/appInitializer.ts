@@ -1,4 +1,3 @@
-
 // App initialization utilities
 export const initializeTheme = () => {
   document.documentElement.classList.add("dark");
@@ -7,7 +6,7 @@ export const initializeTheme = () => {
 
 export const initializeSEO = () => {
   // Set comprehensive SEO meta tags
-  document.title = "invalser - India's #1 Premium Valet Services | Instant Booking";
+  document.title = "INVALSER - India's #1 Premium Valet & Security Services | Instant Booking";
   
   // Update or create meta description
   let metaDescription = document.querySelector('meta[name="description"]');
@@ -16,7 +15,7 @@ export const initializeSEO = () => {
     metaDescription.setAttribute('name', 'description');
     document.head.appendChild(metaDescription);
   }
-  metaDescription.setAttribute('content', 'Find and book premium valet services across India. 500+ verified professionals for weddings, events, personal use. Instant booking, transparent pricing, 24/7 support. Best valet service platform in India.');
+  metaDescription.setAttribute('content', 'INVALSER: Book premium valet and security services across India. 500+ verified professionals for weddings, events, corporates. Instant booking, transparent pricing, 24/7 support.');
 
   // Add keywords meta tag
   let metaKeywords = document.querySelector('meta[name="keywords"]');
@@ -25,15 +24,15 @@ export const initializeSEO = () => {
     metaKeywords.setAttribute('name', 'keywords');
     document.head.appendChild(metaKeywords);
   }
-  metaKeywords.setAttribute('content', 'valet services india, book valet online, professional valet, wedding valet, event valet, personal valet, valet booking, premium valet services, trusted valet, valet near me');
+  metaKeywords.setAttribute('content', 'valet services india, security services india, book valet online, professional valet, wedding valet, event security, bodyguards, bouncers, valet booking, premium services');
 
   // Add Open Graph tags
   const ogTags = [
-    { property: 'og:title', content: 'invalser - India\'s #1 Premium Valet Services' },
-    { property: 'og:description', content: 'Book premium valet services instantly. 500+ verified professionals across India.' },
+    { property: 'og:title', content: 'INVALSER - India\'s #1 Premium Valet & Security Services' },
+    { property: 'og:description', content: 'Book premium valet and security services instantly. 500+ verified professionals across India.' },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: window.location.origin },
-    { property: 'og:site_name', content: 'invalser' }
+    { property: 'og:site_name', content: 'INVALSER' }
   ];
 
   ogTags.forEach(tag => {
@@ -49,8 +48,8 @@ export const initializeSEO = () => {
   // Add Twitter Card tags
   const twitterTags = [
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'invalser - India\'s #1 Premium Valet Services' },
-    { name: 'twitter:description', content: 'Book premium valet services instantly. 500+ verified professionals across India.' }
+    { name: 'twitter:title', content: 'INVALSER - India\'s #1 Premium Valet & Security Services' },
+    { name: 'twitter:description', content: 'Book premium valet and security services instantly. 500+ verified professionals across India.' }
   ];
 
   twitterTags.forEach(tag => {
@@ -67,8 +66,8 @@ export const initializeSEO = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "invalser",
-    "description": "India's premier valet services platform connecting customers with verified professionals",
+    "name": "INVALSER",
+    "description": "India's premier valet and security services platform connecting customers with verified professionals",
     "url": window.location.origin,
     "telephone": "+91-9550464957",
     "priceRange": "₹₹",
@@ -78,7 +77,7 @@ export const initializeSEO = () => {
     },
     "offers": {
       "@type": "Offer",
-      "description": "Premium valet services for personal, wedding, and corporate events"
+      "description": "Premium valet and security services for personal, wedding, and corporate events"
     }
   };
 

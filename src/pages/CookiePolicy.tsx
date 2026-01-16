@@ -82,10 +82,10 @@ const CookiePolicy = () => {
               <p className="text-muted-foreground leading-relaxed">
                 If you have any questions about our cookie policy or privacy practices, please contact us at{' '}
                 <a 
-                  href="mailto:invalser@gmail.com" 
+                  href="mailto:megtk17@gmail.com" 
                   className="text-primary hover:underline font-medium"
                 >
-                  invalser@gmail.com
+                  megtk17@gmail.com
                 </a>
               </p>
             </CardContent>

@@ -3,7 +3,7 @@
     "apps": [],
     "details": [
       {
-        "appID": "TEAMID.app.invalser",
+        "appID": "TEAMID.app.findvalet",
         "paths": [
           "/providers/*",
           "/booking/*",
@@ -15,6 +15,6 @@
     ]
   },
   "webcredentials": {
-    "apps": ["TEAMID.app.invalser"]
+    "apps": ["TEAMID.app.findvalet"]
   }
 }
